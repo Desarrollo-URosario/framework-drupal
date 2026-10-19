@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drupal Node CSS Framework - Botones y Formularios</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Drupal Node CSS Framework -->
+    <link rel="stylesheet" href="../assets/css/drupal-node-css-framework-v1.css">
+
+    <!-- Docs -->
+    <link rel="stylesheet" href="assets/css/docs.css">
+</head>
+<body>
+
+    <header class="docs-navbar">
+        <div class="docs-navbar__inner">
+            <a class="docs-navbar__brand" href="index.html">
+                <span class="docs-navbar__brand-badge">CSS</span>
+                Drupal Node Framework
+            </a>
+            <nav class="docs-navbar__nav">
+                <a href="index.html">Fundamentos</a>
+                <a href="componentes.html">Componentes</a>
+                <a href="botones-formularios.html" class="active">Botones y Formularios</a>
+                <a href="utilidades.html">Utilidades</a>
+            </nav>
+            <button class="docs-search-btn" type="button" aria-label="Buscar en la documentación" aria-haspopup="dialog">
+                <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                <span class="docs-search-btn__text">Buscar</span>
+                <kbd class="docs-search-btn__kbd">/</kbd>
+            </button>
+            <button class="docs-toggler" aria-label="Abrir menú">&#9776;</button>
+        </div>
+    </header>
+
+    <div id="docs-sidebar-backdrop" class="docs-sidebar-backdrop"></div>
+
+    <div class="docs-layout">
+        <aside class="docs-layout__sidebar">
+            <nav>
+                <p class="docs-sidebar-title">Botones</p>
+                <a class="docs-sidebar-link" href="#catalogo-botones">Catálogo de colores</a>
+                <a class="docs-sidebar-link" href="#btn-enlace">Enlace</a>
+                <a class="docs-sidebar-link" href="#btn-icon">Icon</a>
+                <a class="docs-sidebar-link" href="#box-icon">Caja icono</a>
+                <a class="docs-sidebar-link" href="#btn-ancho">Ancho del botón</a>
+                <a class="docs-sidebar-link" href="#btn-white">Botón blanco</a>
+                <p class="docs-sidebar-title">Formularios</p>
+                <a class="docs-sidebar-link" href="#formularios">Formularios</a>
+                <p class="docs-sidebar-title">Extras</p>
+                <a class="docs-sidebar-link" href="#embed-instagram">Instagram / Embeds</a>
+            </nav>
+        </aside>
+
+        <main class="docs-layout__content docs-content">
+            <h1>Botones y Formularios</h1>
+            <p class="docs-lead">Variantes de botón, estilos de formulario y embeds del framework.</p>
+
+            <section id="catalogo-botones">
+                <h2>Catálogo de botones</h2>
+                <p>La matriz de botones se deriva de la paleta, no al revés. Hay dos familias y una sola clase por botón: <code>class="btn-primary"</code>. Los 18 botones de relleno comparten una base común en la que solo cambia el color, y los 19 outline comparten otra.</p>
+
+                <h3>La regla</h3>
+                <ul>
+                    <li><strong>Relleno</strong>: solo entran los tokens que dan <strong>4.5:1 o más</strong> contra <code>--color-white</code>. Son 18.</li>
+                    <li><strong>Outline</strong>: fondo <code>transparent</code>, el color va en el borde y en el texto. Entran los que dan <strong>3:1 o más</strong> contra el fondo de página. Son 19.</li>
+                    <li><strong>Hover</strong>: siempre el token <code>-dark</code> de la misma familia, nunca un hex suelto ni un <code>brightness()</code>, que romperían el tono del color.</li>
+                    <li><strong>Los 14 tokens restantes</strong> no generan relleno: son demasiado claros para texto blanco. Ver la tabla del final.</li>
+                </ul>
+                <p>La métrica canónica de los rellenos sale de <code>.btn-blue-green-dark</code>: <code>padding: 9px 25px</code>, <code>border-radius: 30px</code>, <code>font-size: 16px</code>. Los outline conservan su propia métrica más pequeña (<code>5px 20px</code>, radio <code>32px</code>) porque son controles secundarios.</p>
+
+                <h3>Botones de relleno (18)</h3>
+                <table class="docs-table">
+                    <thead>
+                        <tr><th></th><th>Clase</th><th>Fondo</th><th>Hover</th><th>Contraste</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><span style="display:inline-block;width:.9rem;height:.9rem;border-radius:3px;background:var(--color-primary);border:1px solid rgba(0,0,0,.2);vertical-align:-2px;"></span></td><td><code>.btn-primary</code></td><td><code>#841D66</code></td><td><code>#701957</code></td><td>8.94:1</td></tr>
+                        <tr><td><span style="display:inline-block;width:.9rem;height:.9rem;border-radius:3px;background:var(--color-blue-dark);border:1px solid rgba(0,0,0,.2);vertical-align:-2px;"></span></td><td><code>.btn-blue-dark</code></td><td><code>#18294C</code></td><td><code>#142341</code></td><td>14.38:1</td></tr>
+                        <tr><td><span style="display:inline-block;width:.9rem;height:.9rem;border-radius:3px;background:var(--color-blue-green-dark);border:1px solid rgba(0,0,0,.2);vertical-align:-2px;"></span></td><td><code>.btn-blue-green-dark</code></td><td><code>#0F685E</code></td><td><code>#0D5850</code></td><td>6.64:1</td></tr>
+                        <tr><td><span style="display:inline-block;width:.9rem;height:.9rem;border-radius:3px;background:var(--color-brown);border:1px solid rgba(0,0,0,.2);vertical-align:-2px;"></span></td><td><code>.btn-brown</code></td><td><code>#8C5E35</code></td><td><code>#4B2803</code></td><td>5.57:1</td></tr>
+                        <tr><td><span style="display:inline-block;width:.9rem;height:.9rem;border-radius:3px;background:var(--color-brown-dark);border:1px solid rgba(0,0,0,.2);vertical-align:-2px;"></span></td><td><code>.btn-brown-dark</code></td><td><code>#4B2803</code></td><td><code>#402203</code></td><td>13.09:1</td></tr>
+                        <tr><td><span style="display:inline-block;width:.9rem;height:.9rem;border-radius:3px;background:var(--color-charcoal);border:1px solid rgba(0,0,0,.2);vertical-align:-2px;"></span></td><td><code>.btn-charcoal</code></td><td><code>#2F3130</code></td><td><code>#282A29</code></td><td>13.10:1</td></tr>
+                        <tr><td><span style="display:inline-block;width:.9rem;height:.9rem;border-radius:3px;background:var(--color-gold-dark);border:1px solid rgba(0,0,0,.2);vertical-align:-2px;"></span></td><td><code>.btn-gold-dark</code></td><td><code>#3F2E00</code></td><td><code>#362700</code></td><td>13.11:1</td></tr>
+                        <tr><td><span style="display:inline-block;width:.9rem;height:.9rem;border-radius:3px;background:var(--color-gray);border:1px solid rgba(0,0,0,.2);vertical-align:-2px;"></span></td><td><code>.btn-gray</code></td><td><code>#707070</code></td><td><code>#575757</code></td><td>4.95:1</td></tr>
+                        <tr><td><span style="display:inline-block;width:.9rem;height:.9rem;border-radius:3px;background:var(--color-gray-dark);border:1px solid rgba(0,0,0,.2);vertical-align:-2px;"></span></td><td><code>.btn-gray-dark</code></td><td><code>#575757</code></td><td><code>#4A4A4A</code></td><td>7.23:1</td></tr>
+                        <tr><td><span style="display:inline-block;width:.9rem;height:.9rem;border-radius:3px;background:var(--color-green-dark);border:1px solid rgba(0,0,0,.2);vertical-align:-2px;"></span></td><td><code>.btn-green-dark</code></td><td><code>#006A31</code></td><td><code>#005A2A</code></td><td>6.76:1</td></tr>
+                        <tr><td><span style="display:inline-block;width:.9rem;height:.9rem;border-radius:3px;background:var(--color-green-forest);border:1px solid rgba(0,0,0,.2);vertical-align:-2px;"></span></td><td><code>.btn-green-forest</code></td><td><code>#0A3909</code></td><td><code>#093008</code></td><td>13.11:1</td></tr>
+                        <tr><td><span style="display:inline-block;width:.9rem;height:.9rem;border-radius:3px;background:var(--color-green-leaf);border:1px solid rgba(0,0,0,.2);vertical-align:-2px;"></span></td><td><code>.btn-green-leaf</code></td><td><code>#2D5A27</code></td><td><code>#264C21</code></td><td>8.07:1</td></tr>
+                        <tr><td><span style="display:inline-block;width:.9rem;height:.9rem;border-radius:3px;background:var(--color-muted);border:1px solid rgba(0,0,0,.2);vertical-align:-2px;"></span></td><td><code>.btn-muted</code></td><td><code>#6B7280</code></td><td><code>#5B616D</code></td><td>4.83:1</td></tr>
+                        <tr><td><span style="display:inline-block;width:.9rem;height:.9rem;border-radius:3px;background:var(--color-purple);border:1px solid rgba(0,0,0,.2);vertical-align:-2px;"></span></td><td><code>.btn-purple</code></td><td><code>#C8127C</code></td><td><code>#870D54</code></td><td>5.48:1</td></tr>
+                        <tr><td><span style="display:inline-block;width:.9rem;height:.9rem;border-radius:3px;background:var(--color-purple-dark);border:1px solid rgba(0,0,0,.2);vertical-align:-2px;"></span></td><td><code>.btn-purple-dark</code></td><td><code>#870D54</code></td><td><code>#730B47</code></td><td>9.48:1</td></tr>
+                        <tr><td><span style="display:inline-block;width:.9rem;height:.9rem;border-radius:3px;background:var(--color-red-dark);border:1px solid rgba(0,0,0,.2);vertical-align:-2px;"></span></td><td><code>.btn-red-dark</code></td><td><code>#AC0000</code></td><td><code>#920000</code></td><td>7.62:1</td></tr>
+                        <tr><td><span style="display:inline-block;width:.9rem;height:.9rem;border-radius:3px;background:var(--color-subtitle);border:1px solid rgba(0,0,0,.2);vertical-align:-2px;"></span></td><td><code>.btn-subtitle</code></td><td><code>#594727</code></td><td><code>#4C3C21</code></td><td>8.92:1</td></tr>
+                        <tr><td><span style="display:inline-block;width:.9rem;height:.9rem;border-radius:3px;background:var(--color-text);border:1px solid rgba(0,0,0,.2);vertical-align:-2px;"></span></td><td><code>.btn-text</code></td><td><code>#323232</code></td><td><code>#2A2A2A</code></td><td>12.82:1</td></tr>
+                        <tr><td><span style="display:inline-block;width:.9rem;height:.9rem;border-radius:3px;background:var(--color-primary);border:1px solid rgba(0,0,0,.2);vertical-align:-2px;"></span></td><td><code>.btn-red</code></td><td colspan="3">Alias heredado de <code>.btn-primary</code>: ambos pintan <code>--color-primary</code> y hacen hover a <code>--color-primary-dark</code>.</td><td>10.68:1</td></tr>
+                    </tbody>
+                </table>
+                <div class="bd-example">
+                    <div class="node-scope d-flex flex-wrap gap-2">
+                        <a href="#" class="btn-primary">primary</a>
+                        <a href="#" class="btn-blue-dark">blue-dark</a>
+                        <a href="#" class="btn-blue-green-dark">blue-green-dark</a>
+                        <a href="#" class="btn-brown">brown</a>
+                        <a href="#" class="btn-brown-dark">brown-dark</a>
+                        <a href="#" class="btn-charcoal">charcoal</a>
+                        <a href="#" class="btn-gold-dark">gold-dark</a>
+                        <a href="#" class="btn-gray">gray</a>
+                        <a href="#" class="btn-gray-dark">gray-dark</a>
+                        <a href="#" class="btn-green-dark">green-dark</a>
+                        <a href="#" class="btn-green-forest">green-forest</a>
+                        <a href="#" class="btn-green-leaf">green-leaf</a>
+                        <a href="#" class="btn-muted">muted</a>
+                        <a href="#" class="btn-purple">purple</a>
+                        <a href="#" class="btn-purple-dark">purple-dark</a>
+                        <a href="#" class="btn-red-dark">red-dark</a>
+                        <a href="#" class="btn-subtitle">subtitle</a>
+                        <a href="#" class="btn-text">text</a>
+                    </div>
+                </div>
+                <div class="bd-code">
+                    <div class="bd-code__header">
+                        <span class="bd-code__label">HTML</span>
+                        <button class="docs-copy" type="button"><i class="fa-regular fa-copy"></i> Copiar</button>
+                    </div>
+<pre><code>&lt;a href="#" class="btn-primary"&gt;Primario&lt;/a&gt;
+&lt;a href="#" class="btn-blue-green-dark"&gt;Blue-green&lt;/a&gt;
+&lt;button type="button" class="btn-red"&gt;&lt;i class="fa-solid fa-check"&gt;&lt;/i&gt; Con icono&lt;/button&gt;</code></pre>
+                </div>
+
+                <h3>Botones outline (19)</h3>
+                <p>Fondo transparente y texto del color. En <code>:hover</code> pasan a relleno y el texto se va a blanco, así que el hover cumple el mismo 4.5:1.</p>
+                <table class="docs-table">
+                    <thead>
+                        <tr><th></th><th>Clase</th><th>Color</th><th>Contraste vs página</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><span style="display:inline-block;width:.9rem;height:.9rem;border-radius:3px;background:var(--color-primary);border:1px solid rgba(0,0,0,.2);vertical-align:-2px;"></span></td><td><code>.btn-outline-primary</code></td><td><code>#841D66</code></td><td>8.94:1</td></tr>
+                        <tr><td><span style="display:inline-block;width:.9rem;height:.9rem;border-radius:3px;background:var(--color-blue-dark);border:1px solid rgba(0,0,0,.2);vertical-align:-2px;"></span></td><td><code>.btn-outline-blue-dark</code></td><td><code>#18294C</code></td><td>14.38:1</td></tr>
+                        <tr><td><span style="display:inline-block;width:.9rem;height:.9rem;border-radius:3px;background:var(--color-blue-green-dark);border:1px solid rgba(0,0,0,.2);vertical-align:-2px;"></span></td><td><code>.btn-outline-blue-green-dark</code></td><td><code>#0F685E</code></td><td>6.64:1</td></tr>
+                        <tr><td><span style="display:inline-block;width:.9rem;height:.9rem;border-radius:3px;background:var(--color-brown);border:1px solid rgba(0,0,0,.2);vertical-align:-2px;"></span></td><td><code>.btn-outline-brown</code></td><td><code>#8C5E35</code></td><td>5.57:1</td></tr>
+                        <tr><td><span style="display:inline-block;width:.9rem;height:.9rem;border-radius:3px;background:var(--color-brown-dark);border:1px solid rgba(0,0,0,.2);vertical-align:-2px;"></span></td><td><code>.btn-outline-brown-dark</code></td><td><code>#4B2803</code></td><td>13.09:1</td></tr>
+                        <tr><td><span style="display:inline-block;width:.9rem;height:.9rem;border-radius:3px;background:var(--color-charcoal);border:1px solid rgba(0,0,0,.2);vertical-align:-2px;"></span></td><td><code>.btn-outline-charcoal</code></td><td><code>#2F3130</code></td><td>13.10:1</td></tr>
+                        <tr><td><span style="display:inline-block;width:.9rem;height:.9rem;border-radius:3px;background:var(--color-gold-dark);border:1px solid rgba(0,0,0,.2);vertical-align:-2px;"></span></td><td><code>.btn-outline-gold-dark</code></td><td><code>#3F2E00</code></td><td>13.11:1</td></tr>
+                        <tr><td><span style="display:inline-block;width:.9rem;height:.9rem;border-radius:3px;background:var(--color-gray);border:1px solid rgba(0,0,0,.2);vertical-align:-2px;"></span></td><td><code>.btn-outline-gray</code></td><td><code>#707070</code></td><td>4.95:1</td></tr>
+                        <tr><td><span style="display:inline-block;width:.9rem;height:.9rem;border-radius:3px;background:var(--color-gray-dark);border:1px solid rgba(0,0,0,.2);vertical-align:-2px;"></span></td><td><code>.btn-outline-gray-dark</code></td><td><code>#575757</code></td><td>7.23:1</td></tr>
+                        <tr><td><span style="display:inline-block;width:.9rem;height:.9rem;border-radius:3px;background:var(--color-green-dark);border:1px solid rgba(0,0,0,.2);vertical-align:-2px;"></span></td><td><code>.btn-outline-green-dark</code></td><td><code>#006A31</code></td><td>6.76:1</td></tr>
+                        <tr><td><span style="display:inline-block;width:.9rem;height:.9rem;border-radius:3px;background:var(--color-green-forest);border:1px solid rgba(0,0,0,.2);vertical-align:-2px;"></span></td><td><code>.btn-outline-green-forest</code></td><td><code>#0A3909</code></td><td>13.11:1</td></tr>
+                        <tr><td><span style="display:inline-block;width:.9rem;height:.9rem;border-radius:3px;background:var(--color-green-leaf);border:1px solid rgba(0,0,0,.2);vertical-align:-2px;"></span></td><td><code>.btn-outline-green-leaf</code></td><td><code>#2D5A27</code></td><td>8.07:1</td></tr>
+                        <tr><td><span style="display:inline-block;width:.9rem;height:.9rem;border-radius:3px;background:var(--color-muted);border:1px solid rgba(0,0,0,.2);vertical-align:-2px;"></span></td><td><code>.btn-outline-muted</code></td><td><code>#6B7280</code></td><td>4.83:1</td></tr>
+                        <tr><td><span style="display:inline-block;width:.9rem;height:.9rem;border-radius:3px;background:var(--color-purple);border:1px solid rgba(0,0,0,.2);vertical-align:-2px;"></span></td><td><code>.btn-outline-purple</code></td><td><code>#C8127C</code></td><td>5.48:1</td></tr>
+                        <tr><td><span style="display:inline-block;width:.9rem;height:.9rem;border-radius:3px;background:var(--color-purple-dark);border:1px solid rgba(0,0,0,.2);vertical-align:-2px;"></span></td><td><code>.btn-outline-purple-dark</code></td><td><code>#870D54</code></td><td>9.48:1</td></tr>
+                        <tr><td><span style="display:inline-block;width:.9rem;height:.9rem;border-radius:3px;background:var(--color-red-dark);border:1px solid rgba(0,0,0,.2);vertical-align:-2px;"></span></td><td><code>.btn-outline-red-dark</code></td><td><code>#AC0000</code></td><td>7.62:1</td></tr>
+                        <tr><td><span style="display:inline-block;width:.9rem;height:.9rem;border-radius:3px;background:var(--color-subtitle);border:1px solid rgba(0,0,0,.2);vertical-align:-2px;"></span></td><td><code>.btn-outline-subtitle</code></td><td><code>#594727</code></td><td>8.92:1</td></tr>
+                        <tr><td><span style="display:inline-block;width:.9rem;height:.9rem;border-radius:3px;background:var(--color-text);border:1px solid rgba(0,0,0,.2);vertical-align:-2px;"></span></td><td><code>.btn-outline-text</code></td><td><code>#323232</code></td><td>12.82:1</td></tr>
+                        <tr><td><span style="display:inline-block;width:.9rem;height:.9rem;border-radius:3px;background:var(--color-blue-green-medium);border:1px solid rgba(0,0,0,.2);vertical-align:-2px;"></span></td><td><code>.btn-outline-blue-green-medium</code></td><td><code>#2E8F78</code></td><td>3.95:1</td></tr>
+                    </tbody>
+                </table>
+                <div class="bd-example">
+                    <div class="node-scope d-flex flex-wrap gap-2">
+                        <a href="#" class="btn-outline-primary">primary</a>
+                        <a href="#" class="btn-outline-blue-dark">blue-dark</a>
+                        <a href="#" class="btn-outline-blue-green-dark">blue-green-dark</a>
+                        <a href="#" class="btn-outline-brown">brown</a>
+                        <a href="#" class="btn-outline-brown-dark">brown-dark</a>
+                        <a href="#" class="btn-outline-charcoal">charcoal</a>
+                        <a href="#" class="btn-outline-gold-dark">gold-dark</a>
+                        <a href="#" class="btn-outline-gray">gray</a>
+                        <a href="#" class="btn-outline-gray-dark">gray-dark</a>
+                        <a href="#" class="btn-outline-green-dark">green-dark</a>
+                        <a href="#" class="btn-outline-green-forest">green-forest</a>
+                        <a href="#" class="btn-outline-green-leaf">green-leaf</a>
+                        <a href="#" class="btn-outline-muted">muted</a>
+                        <a href="#" class="btn-outline-purple">purple</a>
+                        <a href="#" class="btn-outline-purple-dark">purple-dark</a>
+                        <a href="#" class="btn-outline-red-dark">red-dark</a>
+                        <a href="#" class="btn-outline-subtitle">subtitle</a>
+                        <a href="#" class="btn-outline-text">text</a>
+                        <a href="#" class="btn-outline-blue-green-medium">blue-green-medium</a>
+                    </div>
+                </div>
+                <div class="bd-code">
+                    <div class="bd-code__header">
+                        <span class="bd-code__label">HTML</span>
+                        <button class="docs-copy" type="button"><i class="fa-regular fa-copy"></i> Copiar</button>
+                    </div>
+<pre><code>&lt;a href="#" class="btn-outline-primary"&gt;&lt;i class="fa-solid fa-handshake"&gt;&lt;/i&gt; Trabaja con Score&lt;/a&gt;</code></pre>
+                </div>
+
+                <h3>Tokens que no generan relleno</h3>
+                <p>Con texto blanco encima, ninguno llega a 4.5:1, así que no hay <code>.btn-&lt;color&gt;</code> que los pinte. Sirven para texto, bordes y fondos: para eso están las utilidades <code>.color-*</code>, <code>.bg-color-*</code> y <code>.border-color-*</code>.</p>
+                <table class="docs-table">
+                    <thead>
+                        <tr><th></th><th>Token</th><th>Contraste con blanco</th><th>¿Outline?</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><span style="display:inline-block;width:.9rem;height:.9rem;border-radius:3px;background:var(--color-accent);border:1px solid rgba(0,0,0,.2);vertical-align:-2px;"></span></td><td><code>--color-accent</code></td><td>2.07:1</td><td>no</td></tr>
+                        <tr><td><span style="display:inline-block;width:.9rem;height:.9rem;border-radius:3px;background:var(--color-border);border:1px solid rgba(0,0,0,.2);vertical-align:-2px;"></span></td><td><code>--color-border</code></td><td>1.24:1</td><td>no</td></tr>
+                        <tr><td><span style="display:inline-block;width:.9rem;height:.9rem;border-radius:3px;background:var(--color-cream);border:1px solid rgba(0,0,0,.2);vertical-align:-2px;"></span></td><td><code>--color-cream</code></td><td>1.08:1</td><td>no</td></tr>
+                        <tr><td><span style="display:inline-block;width:.9rem;height:.9rem;border-radius:3px;background:var(--color-cream-light);border:1px solid rgba(0,0,0,.2);vertical-align:-2px;"></span></td><td><code>--color-cream-light</code></td><td>1.13:1</td><td>no</td></tr>
+                        <tr><td><span style="display:inline-block;width:.9rem;height:.9rem;border-radius:3px;background:var(--color-gray-extra-light);border:1px solid rgba(0,0,0,.2);vertical-align:-2px;"></span></td><td><code>--color-gray-extra-light</code></td><td>1.05:1</td><td>no</td></tr>
+                        <tr><td><span style="display:inline-block;width:.9rem;height:.9rem;border-radius:3px;background:var(--color-gray-light);border:1px solid rgba(0,0,0,.2);vertical-align:-2px;"></span></td><td><code>--color-gray-light</code></td><td>1.16:1</td><td>no</td></tr>
+                        <tr><td><span style="display:inline-block;width:.9rem;height:.9rem;border-radius:3px;background:var(--color-green-fresh);border:1px solid rgba(0,0,0,.2);vertical-align:-2px;"></span></td><td><code>--color-green-fresh</code></td><td>1.30:1</td><td>no</td></tr>
+                        <tr><td><span style="display:inline-block;width:.9rem;height:.9rem;border-radius:3px;background:var(--color-green-light);border:1px solid rgba(0,0,0,.2);vertical-align:-2px;"></span></td><td><code>--color-green-light</code></td><td>1.08:1</td><td>no</td></tr>
+                        <tr><td><span style="display:inline-block;width:.9rem;height:.9rem;border-radius:3px;background:var(--color-green-pale);border:1px solid rgba(0,0,0,.2);vertical-align:-2px;"></span></td><td><code>--color-green-pale</code></td><td>1.21:1</td><td>no</td></tr>
+                        <tr><td><span style="display:inline-block;width:.9rem;height:.9rem;border-radius:3px;background:var(--color-off-white);border:1px solid rgba(0,0,0,.2);vertical-align:-2px;"></span></td><td><code>--color-off-white</code></td><td>1.05:1</td><td>no</td></tr>
+                        <tr><td><span style="display:inline-block;width:.9rem;height:.9rem;border-radius:3px;background:var(--color-peach-light);border:1px solid rgba(0,0,0,.2);vertical-align:-2px;"></span></td><td><code>--color-peach-light</code></td><td>1.13:1</td><td>no</td></tr>
+                        <tr><td><span style="display:inline-block;width:.9rem;height:.9rem;border-radius:3px;background:var(--color-purple-light);border:1px solid rgba(0,0,0,.2);vertical-align:-2px;"></span></td><td><code>--color-purple-light</code></td><td>1.26:1</td><td>no</td></tr>
+                        <tr><td><span style="display:inline-block;width:.9rem;height:.9rem;border-radius:3px;background:var(--color-red-light);border:1px solid rgba(0,0,0,.2);vertical-align:-2px;"></span></td><td><code>--color-red-light</code></td><td>2.06:1</td><td>no</td></tr>
+                        <tr><td><span style="display:inline-block;width:.9rem;height:.9rem;border-radius:3px;background:var(--color-secondary);border:1px solid rgba(0,0,0,.2);vertical-align:-2px;"></span></td><td><code>--color-secondary</code></td><td>1.41:1</td><td>no</td></tr>
+                    </tbody>
+                </table>
+                <p><code>.btn-outline-blue-green-medium</code> es el único outline que no tiene relleno equivalente: <code>--color-blue-green-medium</code> da 3.95:1 con blanco, así que sirve de borde y de texto pero no de fondo.</p>
+            </section>
+
+            <section id="btn-enlace">
+                <h2>Enlace (btn-enlace)</h2>
+                <p>Botón pill de relleno primario con hover a secundario. Ideal para "leer más" hacia otro nodo.</p>
+                <div class="bd-example">
+                    <div class="node-scope d-flex flex-wrap gap-2">
+                        <a href="#" class="btn-enlace">Ir al sitio</a>
+                        <a href="#" class="btn-enlace"><i class="fa-solid fa-arrow-right"></i> Ver más</a>
+                    </div>
+                </div>
+
+                <h3>Variante green forest (btn-enlace--green-forest)</h3>
+                <p>La variante cambia el fondo y borde a <code>--color-green-forest</code>. Hover invierte a fondo blanco y texto verde bosque.</p>
+                <div class="bd-example">
+                    <div class="node-scope d-flex flex-wrap gap-2">
+                        <a href="#" class="btn-enlace btn-enlace--green-forest">Descubre por qué son importantes <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="bd-code">
+                    <div class="bd-code__header">
+                        <span class="bd-code__label">HTML</span>
+                        <button class="docs-copy" type="button"><i class="fa-regular fa-copy"></i> Copiar</button>
+                    </div>
+<pre><code>&lt;a href="#" class="btn-enlace btn-enlace--green-forest"&gt;
+    Descubre por qué son importantes &lt;i class="fa-solid fa-arrow-right"&gt;&lt;/i&gt;
+&lt;/a&gt;</code></pre>
+                </div>
+            </section>
+
+            <section id="btn-icon">
+                <h2>Icon (btn-icon)</h2>
+                <p>Botón vertical con icono grande y texto. En hover invierte a primario. Incluye estados focus, active y disabled. El icono no tiene color por defecto: se asigna con las clases de color <code>.btn-green-forest</code> (y variantes del token). En hover, la clase de color invierte el relleno al color del token con texto e icono blancos.</p>
+                <p>Variantes disponibles: <code>.btn-primary</code>, <code>.btn-red-dark</code>, <code>.btn-purple</code>, <code>.btn-purple-dark</code>, <code>.btn-green-forest</code>, <code>.btn-green-dark</code>, <code>.btn-green-leaf</code>, <code>.btn-blue-green</code>, <code>.btn-blue-green-light</code>, <code>.btn-blue-green-dark</code>, <code>.btn-gray</code>, <code>.btn-gray-dark</code>, <code>.btn-blue-dark</code>, <code>.btn-brown</code>, <code>.btn-brown-dark</code>, <code>.btn-charcoal</code>, <code>.btn-gold</code>, <code>.btn-gold-dark</code>, <code>.btn-muted</code>.</p>
+                <div class="bd-example">
+                    <div class="node-scope d-grid gap-3" style="grid-template-columns:repeat(3,180px);">
+                        <button type="button" class="btn-icon">
+                            <i class="fa-solid fa-map-location-dot"></i>
+                            <p>Territorios</p>
+                        </button>
+                        <button type="button" class="btn-icon">
+                            <i class="fa-solid fa-chart-pie"></i>
+                            <p>Datos y herramientas</p>
+                        </button>
+                        <button type="button" class="btn-icon btn-green-forest">
+                            <i class="fa-solid fa-briefcase"></i>
+                            <p>Proyectos</p>
+                        </button>
+                    </div>
+                </div>
+                <div class="bd-code">
+                    <div class="bd-code__header">
+                        <span class="bd-code__label">HTML</span>
+                        <button class="docs-copy" type="button"><i class="fa-regular fa-copy"></i> Copiar</button>
+                    </div>
+<pre><code>&lt;button type="button" class="btn-icon btn-green-forest"&gt;
+    &lt;i class="fa-solid fa-briefcase"&gt;&lt;/i&gt;
+    &lt;p&gt;Proyectos&lt;/p&gt;
+&lt;/button&gt;</code></pre>
+                </div>
+            </section>
+
+            <section id="box-icon">
+                <h2>Caja icono (box-icon)</h2>
+                <p>Caja cuadrada 54&times;54 acorde al <code>--color-primary</code>, para redes o accesos con iconos.</p>
+                <div class="bd-example">
+                    <div class="node-scope d-flex gap-2">
+                        <a href="#" class="box-icon" aria-label="Correo"><i class="fa-solid fa-envelope"></i></a>
+                        <a href="#" class="box-icon" aria-label="Teléfono"><i class="fa-solid fa-phone"></i></a>
+                        <a href="#" class="box-icon" aria-label="Ubicación"><i class="fa-solid fa-location-dot"></i></a>
+                    </div>
+                </div>
+            </section>
+
+            <section id="btn-ancho">
+                <h2>Ancho del botón</h2>
+                <p>Las bases de relleno y outline <strong>no declaran <code>width</code></strong>: el ancho se decide siempre en el markup con estas dos utilidades, que son el único sitio del framework donde se declara. <code>.btn-block</code> lo estira al <code>100%</code> del contenedor; <code>.btn-fit</code> lo ajusta a lo que ocupa el contenido (<code>width: fit-content</code>).</p>
+                <div class="bd-example">
+                    <div class="node-scope" style="max-width:340px;">
+                        <button type="button" class="btn-blue-green-dark btn-block">A ancho completo</button>
+                        <div class="d-flex gap-2" style="margin-top:1rem;">
+                            <button type="button" class="btn-outline-gray btn-fit">Ajustado</button>
+                            <button type="button" class="btn-purple btn-fit">Otro</button>
+                        </div>
+                    </div>
+                </div>
+                <p class="docs-note">El caso donde <code>.btn-fit</code> sí hace falta: un <code>&lt;a&gt;</code> colocado directamente en un contenedor de bloque. <code>display: flex</code> es block-level, así que el enlace se estira al <code>100%</code> y hay que devolverlo a lo necesario. Los <code>&lt;button&gt;</code> no tienen ese problema porque su ancho es intrínseco.</p>
+                <div class="bd-example">
+                    <div class="node-scope" style="max-width:340px;">
+                        <p><strong>Sin <code>btn-fit</code>:</strong></p>
+                        <a href="#" class="btn-outline-blue-green-dark">Ver perfil</a>
+                        <p style="margin:1rem 0 .35rem;"><strong>Con <code>btn-fit</code>:</strong></p>
+                        <a href="#" class="btn-outline-blue-green-dark btn-fit">Ver perfil</a>
+                    </div>
+                </div>
+                <div class="bd-code">
+                    <div class="bd-code__header">
+                        <span class="bd-code__label">HTML</span>
+                        <button class="docs-copy" type="button"><i class="fa-regular fa-copy"></i> Copiar</button>
+                    </div>
+<pre><code>&lt;button type="button" class="btn-blue-green-dark btn-block"&gt;A ancho completo&lt;/button&gt;
+
+&lt;div class="d-flex gap-2"&gt;
+    &lt;button type="button" class="btn-outline-gray btn-fit"&gt;Ajustado&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;!-- &lt;a&gt; en un bloque: sin btn-fit se estira --&gt;
+&lt;a href="#" class="btn-outline-blue-green-dark btn-fit"&gt;Solo lo necesario&lt;/a&gt;</code></pre>
+                </div>
+            </section>
+
+            <section id="btn-white">
+                <h2>Botón blanco (btn--white)</h2>
+                <p>Botón pill blanco con texto en <code>--color-accent</code>. Diseñado para banners CTA.</p>
+                <div class="bd-example">
+                    <div class="node-scope p-4" style="background:var(--color-accent);">
+                        <a href="#" class="btn--white">Acción</a>
+                    </div>
+                </div>
+            </section>
+
+            <section id="formularios">
+                <h2>Formularios</h2>
+                <p>Estilos para formularios de Drupal (labels, legends, campos de ancho completo, selects y botón submit).</p>
+                <div class="bd-example">
+                    <div class="node-scope">
+                        <form class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-item__label" for="docNombre">Nombre completo</label>
+                                <input type="text" class="form-text form-control" id="docNombre" placeholder="Nombre">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-item__label" for="docCorreo">Correo</label>
+                                <input type="email" class="form-control" id="docCorreo" placeholder="correo@urosario.edu.co">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-item__label" for="docTel">Teléfono</label>
+                                <input type="tel" class="form-control" id="docTel" placeholder="+601">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-item__label" for="docSelect">Tema</label>
+                                <select class="form-select" id="docSelect">
+                                    <option>Territorios</option>
+                                    <option>Proyectos</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="form-item__textfield form-submit">Enviar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="bd-code">
+                    <div class="bd-code__header">
+                        <span class="bd-code__label">HTML</span>
+                        <button class="docs-copy" type="button"><i class="fa-regular fa-copy"></i> Copiar</button>
+                    </div>
+<pre><code>&lt;div class="node-scope"&gt;
+    &lt;form&gt;
+        &lt;label class="form-item__label" for="nombre"&gt;Nombre&lt;/label&gt;
+        &lt;input type="text" class="form-text" id="nombre"&gt;
+
+        &lt;select class="form-select"&gt;
+            &lt;option&gt;Opción 1&lt;/option&gt;
+        &lt;/select&gt;
+
+        &lt;button type="submit" class="form-item__textfield form-submit"&gt;
+            Enviar
+        &lt;/button&gt;
+    &lt;/form&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+                <div class="docs-note docs-note--info">
+                    <strong><i class="fa-solid fa-circle-info"></i></strong>
+                    <span>Los labels de <code>.js-form-item-title .form-item__label</code> se ocultan automáticamente (título interno de Drupal).</span>
+                </div>
+            </section>
+
+            <section id="embed-instagram">
+                <h2>Instagram / Embeds</h2>
+                <p>Contenedor con ratio 9/14 para incrustar videos de Instagram (Reels/Stories) a ancho completo.</p>
+                <div class="bd-example">
+                    <div class="node-scope">
+                        <div class="instagram-video" style="max-width:280px;margin-inline:auto;">
+                            <div style="width:100%;height:100%;aspect-ratio:9/14;background:#e9ecef;border-radius:12px;display:flex;align-items:center;justify-content:center;">
+                                <i class="fa-brands fa-instagram" style="font-size:2.5rem;color:#c8127c;"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bd-code">
+                    <div class="bd-code__header">
+                        <span class="bd-code__label">HTML</span>
+                        <button class="docs-copy" type="button"><i class="fa-regular fa-copy"></i> Copiar</button>
+                    </div>
+<pre><code>&lt;div class="instagram-video"&gt;
+    &lt;iframe src="https://www.instagram.com/p/..."&gt;&lt;/iframe&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer class="docs-footer">
+        Drupal Node CSS Framework v1 &mdash; Documentación de referencia
+    </footer>
+
+    <!-- Bootstrap JS (necesario para las demos) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- ============ BUSCADOR ============ -->
+    <div class="docs-search" id="docsSearch" role="dialog" aria-modal="true" aria-label="Buscar en la documentación" hidden>
+        <div class="docs-search__backdrop" data-docs-search-close></div>
+        <div class="docs-search__panel" role="search">
+            <div class="docs-search__head">
+                <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                <input
+                    type="search"
+                    class="docs-search__input"
+                    id="docsSearchInput"
+                    placeholder="Buscar componentes, clases, utilidades..."
+                    autocomplete="off"
+                    spellcheck="false"
+                    aria-label="Término de búsqueda"
+                    aria-controls="docsSearchResults"
+                    aria-expanded="false">
+                <button type="button" class="docs-search__close" data-docs-search-close aria-label="Cerrar búsqueda">Esc</button>
+            </div>
+            <div class="docs-search__results" id="docsSearchResults" role="listbox" aria-label="Resultados"></div>
+            <div class="docs-search__foot">
+                <span><kbd>&uarr;</kbd><kbd>&darr;</kbd> navegar</span>
+                <span><kbd>Enter</kbd> abrir</span>
+                <span><kbd>Esc</kbd> cerrar</span>
+                <span class="docs-search__count" id="docsSearchCount"></span>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/docs-search-index.js"></script>
+
+    <script src="assets/js/docs.js"></script>
+    <script src="assets/js/docs-search.js"></script>
+</body>
+</html>

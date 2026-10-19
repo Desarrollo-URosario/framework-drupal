@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drupal Node CSS Framework - Utilidades</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Drupal Node CSS Framework -->
+    <link rel="stylesheet" href="../assets/css/drupal-node-css-framework-v1.css">
+    <!-- Libreria opcional de animaciones por scroll. Solo esta pagina de
+         documentacion la carga, para no penalizar al resto. -->
+    <link rel="stylesheet" href="../assets/css/score-reveal.css">
+
+    <!-- Docs -->
+    <link rel="stylesheet" href="assets/css/docs.css">
+</head>
+<body>
+
+    <header class="docs-navbar">
+        <div class="docs-navbar__inner">
+            <a class="docs-navbar__brand" href="index.html">
+                <span class="docs-navbar__brand-badge">CSS</span>
+                Drupal Node Framework
+            </a>
+            <nav class="docs-navbar__nav">
+                <a href="index.html">Fundamentos</a>
+                <a href="componentes.html">Componentes</a>
+                <a href="botones-formularios.html">Botones y Formularios</a>
+                <a href="utilidades.html" class="active">Utilidades</a>
+            </nav>
+            <button class="docs-search-btn" type="button" aria-label="Buscar en la documentación" aria-haspopup="dialog">
+                <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                <span class="docs-search-btn__text">Buscar</span>
+                <kbd class="docs-search-btn__kbd">/</kbd>
+            </button>
+            <button class="docs-toggler" aria-label="Abrir menú">&#9776;</button>
+        </div>
+    </header>
+
+    <div id="docs-sidebar-backdrop" class="docs-sidebar-backdrop"></div>
+
+    <div class="docs-layout">
+        <aside class="docs-layout__sidebar">
+            <nav>
+                <p class="docs-sidebar-title">Utilidades</p>
+                <a class="docs-sidebar-link" href="#contenedores">Contenedores</a>
+                <a class="docs-sidebar-link" href="#espaciado-util">Espaciado y tamaño</a>
+                <a class="docs-sidebar-link" href="#border-radius">Border radius</a>
+                <a class="docs-sidebar-link" href="#grosor-de-borde">Grosor de borde</a>
+                <a class="docs-sidebar-link" href="#divider">Divider</a>
+                <a class="docs-sidebar-link" href="#colores-util">Colores de texto</a>
+                <a class="docs-sidebar-link" href="#links">Links</a>
+                <a class="docs-sidebar-link" href="#fondos">Backgrounds</a>
+                <a class="docs-sidebar-link" href="#colores-de-borde">Colores de borde</a>
+                <a class="docs-sidebar-link" href="#listas">Listas</a>
+                <a class="docs-sidebar-link" href="#alineacion">Alineación</a>
+                <a class="docs-sidebar-link" href="#flexbox">Flexbox</a>
+                <a class="docs-sidebar-link" href="#grid">Grid</a>
+                <a class="docs-sidebar-link" href="#animaciones">Animaciones</a>
+                <a class="docs-sidebar-link" href="#scroll-reveal">Scroll reveal</a>
+                <a class="docs-sidebar-link" href="#overrides">Overrides de nodo</a>
+            </nav>
+        </aside>
+
+        <main class="docs-layout__content docs-content">
+            <h1>Utilidades</h1>
+            <p class="docs-lead">Clases de ayuda para layout, color, flexbox y grid dentro del scope <code>.node-scope</code>.</p>
+
+            <section id="contenedores">
+                <h2>Contenedores</h2>
+                <table class="docs-table">
+                    <thead>
+                        <tr><th>Clase</th><th>Descripción</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>.container</code></td><td>Máximo <code>1200px</code>, centrado, con padding lateral de <code>1rem</code>.</td></tr>
+                        <tr><td><code>.section</code></td><td>Padding vertical de <code>2rem</code>.</td></tr>
+                        <tr><td><code>.bg-gray-extra-light</code></td><td>Fondo <code>#F9F9F9</code>.</td></tr>
+                        <tr><td><code>.bgc-white .layout-content</code></td><td>Caja blanca con radio <code>16px</code> y sombra para contenidos.</td></tr>
+                    </tbody>
+                </table>
+                <div class="bd-example">
+                    <div class="node-scope bg-gray-extra-light" style="padding:1rem;">
+                        <div class="bgc-white">
+                            <div class="layout-content">
+                                <p style="margin:0;">Contenido dentro de <code>.bgc-white .layout-content</code>.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="espaciado-util">
+                <h2>Espaciado y tamaño</h2>
+                <h3>Márgenes (.m-* / .mt-* / .me-* / .mb-* / .ms-* / .mx-* / .my-*)</h3>
+                <p>Sistema de márgenes estilo Bootstrap, scoped bajo <code>.node-scope</code>, con <code>!important</code> y breakpoints responsivos (min-width). Propiedades</p>
+                <table class="docs-table">
+                    <thead>
+                        <tr><th>Prefijo</th><th>Propiedad CSS</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>.m-*</code></td><td><code>margin</code> (todos los lados)</td></tr>
+                        <tr><td><code>.mt-*</code></td><td><code>margin-top</code></td></tr>
+                        <tr><td><code>.me-*</code></td><td><code>margin-inline-end</code></td></tr>
+                        <tr><td><code>.mb-*</code></td><td><code>margin-bottom</code></td></tr>
+                        <tr><td><code>.ms-*</code></td><td><code>margin-inline-start</code></td></tr>
+                        <tr><td><code>.mx-*</code></td><td><code>margin-inline</code> (izquierda + derecha)</td></tr>
+                        <tr><td><code>.my-*</code></td><td><code>margin-block</code> (arriba + abajo)</td></tr>
+                    </tbody>
+                </table>
+                <p>Tamaños (usando los tokens <code>--margin-*</code>):</p>
+                <table class="docs-table">
+                    <thead>
+                        <tr><th>Sufijo</th><th>Valor</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>0</code></td><td><code>0</code></td></tr>
+                        <tr><td><code>1</code></td><td><code>var(--margin-xs)</code> = .25rem</td></tr>
+                        <tr><td><code>2</code></td><td><code>var(--margin-sm)</code> = .5rem</td></tr>
+                        <tr><td><code>3</code></td><td><code>var(--margin-md)</code> = 1rem</td></tr>
+                        <tr><td><code>4</code></td><td><code>var(--margin-lg)</code> = 2rem</td></tr>
+                        <tr><td><code>5</code></td><td><code>var(--margin-xl)</code> = 3rem</td></tr>
+                        <tr><td><code>auto</code></td><td><code>auto</code></td></tr>
+                    </tbody>
+                </table>
+                <p>Breakpoints (min-width, estilo Bootstrap):</p>
+                <table class="docs-table">
+                    <thead>
+                        <tr><th>Prefijo</th><th>Mínimo</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><em>sin prefijo</em></td><td>base</td></tr>
+                        <tr><td><code>sm</code></td><td>576px</td></tr>
+                        <tr><td><code>md</code></td><td>768px</td></tr>
+                        <tr><td><code>lg</code></td><td>992px</td></tr>
+                        <tr><td><code>xl</code></td><td>1200px</td></tr>
+                        <tr><td><code>xxl</code></td><td>1400px</td></tr>
+                    </tbody>
+                </table>
+                <div class="bd-example">
+                    <div class="node-scope">
+                        <p class="mt-3">.mt-3</p>
+                        <p class="mx-auto" style="border:1px dashed var(--color-gray);width:fit-content;">.mx-auto</p>
+                        <p class="mt-lg-5" style="border:1px dashed var(--color-gray);width:fit-content;">.mt-lg-5</p>
+                    </div>
+                </div>
+                <div class="bd-code">
+                    <div class="bd-code__header">
+                        <span class="bd-code__label">HTML</span>
+                        <button class="docs-copy" type="button"><i class="fa-regular fa-copy"></i> Copiar</button>
+                    </div>
+<pre><code>&lt;div class="mt-3"&gt;Margen superior 1rem&lt;/div&gt;
+&lt;div class="mx-auto"&gt;Centrado horizontal&lt;/div&gt;
+&lt;div class="mt-lg-5"&gt;1rem en móvil, 3rem en ≥992px&lt;/div&gt;</code></pre>
+                </div>
+                <h3>Tamaño</h3>
+                <table class="docs-table">
+                    <thead>
+                        <tr><th>Clase</th><th>Valor</th><th>Descripción</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>.btn-block</code></td><td>100%</td><td>Ancho completo para botones</td></tr>
+                        <tr><td><code>.btn-fit</code></td><td>fit-content</td><td>Ancho del contenido para botones</td></tr>
+                    </tbody>
+                </table>
+                <p class="docs-note">Las bases de botones de la sección 30 no declaran <code>width</code>: estas dos clases son el único sitio del framework donde se declara el ancho de un botón, para relleno y outline por igual. Antes cada base traía su propio <code>width: fit-content</code> y, al tener la misma especificidad que estas utilidades pero aparecer después en la cascada, <code>.btn-block</code> no llegaba a aplicarse. Ver <a href="botones-formularios.html#btn-ancho">Ancho del botón</a>.</p>
+            </section>
+
+            <section id="border-radius">
+                <h2>Border radius</h2>
+                <p>Utilidades <code>.rounded-*</code> para redondear cualquier contenedor dentro del scope: cards, inputs, imágenes, badges, bloques de código y contenedores de modal. Siguen el nombre de Bootstrap y usan los tokens <code>--radius-*</code>, así que cambiar un token redimensiona toda la escala.</p>
+                <div class="bd-example">
+                    <div class="node-scope">
+                        <div style="display:flex;flex-wrap:wrap;gap:1rem;">
+                            <div class="rounded-0" style="width:90px;height:60px;background:var(--color-secondary);border:1px dashed var(--color-gray);"></div>
+                            <div class="rounded-1" style="width:90px;height:60px;background:var(--color-secondary);border:1px dashed var(--color-gray);"></div>
+                            <div class="rounded-2" style="width:90px;height:60px;background:var(--color-secondary);border:1px dashed var(--color-gray);"></div>
+                            <div class="rounded-3" style="width:90px;height:60px;background:var(--color-secondary);border:1px dashed var(--color-gray);"></div>
+                            <div class="rounded-4" style="width:90px;height:60px;background:var(--color-secondary);border:1px dashed var(--color-gray);"></div>
+                            <div class="rounded-circle" style="width:60px;height:60px;background:var(--color-secondary);border:1px dashed var(--color-gray);"></div>
+                            <div class="rounded-pill" style="width:90px;height:60px;background:var(--color-secondary);border:1px dashed var(--color-gray);"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bd-code">
+                    <div class="bd-code__header">
+                        <span class="bd-code__label">HTML</span>
+                        <button class="docs-copy" type="button"><i class="fa-regular fa-copy"></i> Copiar</button>
+                    </div>
+<pre><code>&lt;div class="rounded-0"&gt;Sin radio&lt;/div&gt;
+&lt;div class="rounded-1"&gt;4px&lt;/div&gt;
+&lt;div class="rounded-2"&gt;8px&lt;/div&gt;
+&lt;div class="rounded-3"&gt;16px&lt;/div&gt;
+&lt;div class="rounded-4"&gt;24px&lt;/div&gt;
+&lt;div class="rounded-circle"&gt;50%&lt;/div&gt;
+&lt;div class="rounded-pill"&gt;999px (extremo a extremo)&lt;/div&gt;</code></pre>
+                </div>
+
+                <h3>Escala numérica</h3>
+                <p>Cada número apunta a un token, no a un valor fijo. Si se reescala <code>--radius-lg</code> en el tema, todas las cajas con <code>.rounded-3</code> cambian juntas.</p>
+                <table class="docs-table">
+                    <thead>
+                        <tr><th>Clase</th><th>Token</th><th>Valor</th><th>Uso típico</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>.rounded</code></td><td><code>--radius-md</code></td><td>8px</td><td>Alias de <code>.rounded-2</code></td></tr>
+                        <tr><td><code>.rounded-0</code></td><td>—</td><td>0</td><td>Cuadrado puro, bordes rectos</td></tr>
+                        <tr><td><code>.rounded-1</code></td><td><code>--radius-sm</code></td><td>4px</td><td>Radio casi imperceptible, inputs y chips</td></tr>
+                        <tr><td><code>.rounded-2</code></td><td><code>--radius-md</code></td><td>8px</td><td>Valor por defecto del framework</td></tr>
+                        <tr><td><code>.rounded-3</code></td><td><code>--radius-lg</code></td><td>16px</td><td>Cards y contenedores medianos</td></tr>
+                        <tr><td><code>.rounded-4</code></td><td><code>--radius-xl</code></td><td>24px</td><td>Contenedores grandes y destacados</td></tr>
+                        <tr><td><code>.rounded-none</code></td><td>—</td><td>0</td><td>Alias explícito de <code>.rounded-0</code></td></tr>
+                        <tr><td><code>.rounded-circle</code></td><td>—</td><td>50%</td><td>Avatares e íconos circulares</td></tr>
+                        <tr><td><code>.rounded-pill</code></td><td><code>--radius-pill</code></td><td>999px</td><td>Botones, tags y píldoras</td></tr>
+                    </tbody>
+                </table>
+
+                <h3>Direccionales</h3>
+                <p>Redondean solo las esquinas indicadas, útil cuando un radio se une a un borde existente (por ejemplo una imagen pegada al borde de un bloque). Todas usan <code>--radius-md</code> (8px); combina con <code>.rounded-*</code> numérico si necesitas otro valor.</p>
+                <div class="bd-example">
+                    <div class="node-scope">
+                        <div style="display:flex;flex-wrap:wrap;gap:1rem;">
+                            <div class="rounded-top" style="width:90px;height:60px;background:var(--color-secondary);border:1px dashed var(--color-gray);"></div>
+                            <div class="rounded-bottom" style="width:90px;height:60px;background:var(--color-secondary);border:1px dashed var(--color-gray);"></div>
+                            <div class="rounded-start" style="width:90px;height:60px;background:var(--color-secondary);border:1px dashed var(--color-gray);"></div>
+                            <div class="rounded-end" style="width:90px;height:60px;background:var(--color-secondary);border:1px dashed var(--color-gray);"></div>
+                            <div class="rounded-top-end" style="width:90px;height:60px;background:var(--color-secondary);border:1px dashed var(--color-gray);"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bd-code">
+                    <div class="bd-code__header">
+                        <span class="bd-code__label">HTML</span>
+                        <button class="docs-copy" type="button"><i class="fa-regular fa-copy"></i> Copiar</button>
+                    </div>
+<pre><code>&lt;div class="rounded-top"&gt;Solo arriba&lt;/div&gt;
+&lt;div class="rounded-bottom"&gt;Solo abajo&lt;/div&gt;
+&lt;div class="rounded-start"&gt;Solo izquierda&lt;/div&gt;
+&lt;div class="rounded-end"&gt;Solo derecha&lt;/div&gt;
+&lt;div class="rounded-top-end"&gt;Arriba derecha + abajo izquierda&lt;/div&gt;
+&lt;div class="rounded-top-start"&gt;Arriba izquierda + abajo derecha&lt;/div&gt;</code></pre>
+                </div>
+                <table class="docs-table">
+                    <thead>
+                        <tr><th>Clase</th><th>Esquinas redondeadas</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>.rounded-top</code></td><td>Superior izquierda + superior derecha</td></tr>
+                        <tr><td><code>.rounded-bottom</code></td><td>Inferior izquierda + inferior derecha</td></tr>
+                        <tr><td><code>.rounded-start</code></td><td>Superior izquierda + inferior izquierda</td></tr>
+                        <tr><td><code>.rounded-end</code></td><td>Superior derecha + inferior derecha</td></tr>
+                        <tr><td><code>.rounded-top-start</code></td><td>Superior izquierda + inferior derecha</td></tr>
+                        <tr><td><code>.rounded-top-end</code></td><td>Superior derecha + inferior izquierda</td></tr>
+                    </tbody>
+                </table>
+
+                <h3>Notas de uso</h3>
+                <p>Las utilidades van scoped a <code>.node-scope</code> y usan <code>!important</code>, igual que las de espaciado. Eso significa que ganan a cualquier radio definido por el componente, así que conviene aplicarlas en la envoltura y no peleando contra una variante específica. Si necesitas el radio exacto de un componente (por ejemplo <code>.info-relevante__logo</code>), usa la clase del componente: las utilidades están pensadas para contenedores genéricos y ajustes puntuales.</p>
+            </section>
+
+            <section id="grosor-de-borde">
+                <h2>Grosor de borde</h2>
+                <p>Utilidades <code>.border-*</code> para poner a la vez el grosor y el estilo de un borde. Bootstrap ya trae <code>.border-1</code> … <code>.border-5</code>, pero solo declaran <code>border-width</code>: sin <code>border-style</code> no se dibuja, así que hoy para tener un borde de 2px hay que encadenar <code>.border</code> + <code>.border-2</code>. Estas declaran el <code>shorthand</code> completo, de modo que <strong>una sola clase basta</strong> y el grosor nunca se separa del estilo.</p>
+                <div class="bd-example">
+                    <div class="node-scope">
+                        <div style="display:flex;flex-wrap:wrap;gap:1rem;align-items:center;">
+                            <div class="border-0" style="width:90px;height:60px;background:var(--color-secondary);"></div>
+                            <div class="border-1 border-color-gray-light" style="width:90px;height:60px;background:var(--color-secondary);"></div>
+                            <div class="border-2 border-color-gray-light" style="width:90px;height:60px;background:var(--color-secondary);"></div>
+                            <div class="border-3 border-color-gray-light" style="width:90px;height:60px;background:var(--color-secondary);"></div>
+                            <div class="border-4 border-color-gray-light" style="width:90px;height:60px;background:var(--color-secondary);"></div>
+                            <div class="border-5 border-color-gray-light" style="width:90px;height:60px;background:var(--color-secondary);"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bd-code">
+                    <div class="bd-code__header">
+                        <span class="bd-code__label">HTML</span>
+                        <button class="docs-copy" type="button"><i class="fa-regular fa-copy"></i> Copiar</button>
+                    </div>
+<pre><code>&lt;div class="border-0"&gt;Sin borde&lt;/div&gt;
+&lt;div class="border-1 border-color-gray-light"&gt;1px&lt;/div&gt;
+&lt;div class="border-2 border-color-gray-light"&gt;2px&lt;/div&gt;
+&lt;div class="border-3 border-color-gray-light"&gt;3px&lt;/div&gt;
+&lt;div class="border-4 border-color-gray-light"&gt;4px&lt;/div&gt;
+&lt;div class="border-5 border-color-gray-light"&gt;5px&lt;/div&gt;</code></pre>
+                </div>
+
+                <h3>Escala</h3>
+                <table class="docs-table">
+                    <thead>
+                        <tr><th>Clase</th><th>Declaración</th><th>Uso típico</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>.border-0</code></td><td><code>border: 0</code></td><td>Quitar el borde. <strong>Gana a cualquier <code>.border-*</code></strong>, así que sirve para apagar el que traiga un componente.</td></tr>
+                        <tr><td><code>.border-1</code></td><td><code>border: solid 1px</code></td><td>El grosor por defecto del proyecto: separadores, tarjetas, contenedores.</td></tr>
+                        <tr><td><code>.border-2</code></td><td><code>border: solid 2px</code></td><td>Bordes con más presencia, estados activos.</td></tr>
+                        <tr><td><code>.border-3</code></td><td><code>border: solid 3px</code></td><td>Poco uso en el proyecto; reservado.</td></tr>
+                        <tr><td><code>.border-4</code></td><td><code>border: solid 4px</code></td><td>Igual que el anterior, reservado.</td></tr>
+                        <tr><td><code>.border-5</code></td><td><code>border: solid 5px</code></td><td>Igual que el anterior, reservado.</td></tr>
+                    </tbody>
+                </table>
+                <p>En el framework el borde se usa a 1px en 38 sitios y a 2px en 2; de ahí que la escala llegue hasta 5 para tener la misma cabecera que Bootstrap y no cambiar de nombres si algún día hace falta.</p>
+
+                <h3>Notas de uso</h3>
+                <ul>
+                    <li><strong>El color va aparte.</strong> El <code>shorthand</code> deja el borde en <code>currentColor</code>, así que sin <code>.border-color-*</code> sale del color del texto —igual que los componentes que declaran <code>border: 1px solid</code> sin color, como <code>.info-relevante</code> y <code>.chip</code>. Combina con <a href="#colores-de-borde"><code>.border-color-*</code></a>.</li>
+                    <li><strong>Van antes que <code>.border-color-*</code> en el archivo</strong>, a propósito. Las dos familias son <code>!important</code> y tienen la misma especificidad, así que gana la que aparece después en la hoja: como el grosor va primero, el color siempre le gana, sea cual sea el orden de las clases en el HTML. Si alguien mueve este bloque, hay que comprobar que <code>.border-color-*</code> siga debajo.</li>
+                    <li><strong><code>.border-0</code> está al final del bloque</strong> por el mismo motivo, pero al revés: así le gana a <code>.border-1</code> … <code>.border-5</code> y <code>class="border-2 border-0"</code> sí quita el borde, mientras que el color sigue mandando.</li>
+                    <li>Pisan al <code>.border</code> de Bootstrap (<code>(0,2,0)</code> contra <code>(0,1,0)</code>), así que <code>class="border border-3"</code> da 3px y no 1px.</li>
+                    <li>No hay variantes direccionales (<code>.border-top</code>, <code>.border-start</code>…). Para un lado concreto usa el <code>border-top</code> del componente o una regla propia.</li>
+                </ul>
+            </section>
+
+            <section id="divider">
+                <h2>Divider</h2>
+                <p>Línea primaria superior de 48&times;4px con espacio y gap. Usa el pseudo-elemento <code>::after</code>.</p>
+                <div class="bd-example">
+                    <div class="node-scope">
+                        <div class="divider">
+                            <h3>Título con divisor</h3>
+                            <p>Contenido debajo del divisor.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bd-code">
+                    <div class="bd-code__header">
+                        <span class="bd-code__label">HTML</span>
+                        <button class="docs-copy" type="button"><i class="fa-regular fa-copy"></i> Copiar</button>
+                    </div>
+<pre><code>&lt;div class="divider"&gt;
+    &lt;h3&gt;Título con divisor&lt;/h3&gt;
+    &lt;p&gt;Contenido debajo del divisor.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </section>
+
+            <section id="colores-util">
+                <h2>Colores de texto</h2>
+                <p>Clases <code>.color-*</code> para texto. Listado completo:</p>
+                <div class="bd-example">
+                    <div class="node-scope">
+                        <p class="color-primary">.color-primary</p>
+                        <p class="color-secondary">.color-secondary</p>
+                        <p class="color-accent">.color-accent</p>
+                        <p class="color-purple">.color-purple</p>
+                        <p class="color-purple-dark">.color-purple-dark</p>
+                        <p class="color-blue-green">.color-blue-green</p>
+                        <p class="color-blue-green-light">.color-blue-green-light</p>
+                        <p class="color-blue-green-dark">.color-blue-green-dark</p>
+                        <p class="color-green-dark">.color-green-dark</p>
+                        <p class="color-green-forest">.color-green-forest</p>
+                        <p class="color-green-leaf">.color-green-leaf</p>
+                        <p class="color-green-fresh">.color-green-fresh</p>
+                        <p class="color-green-pale">.color-green-pale</p>
+                        <p class="color-red-light">.color-red-light</p>
+                        <p class="color-blue-dark">.color-blue-dark</p>
+                        <p class="color-gray-extra-light">.color-gray-extra-light</p>
+                        <p class="color-gray-light" style="background:#18294C;padding:.25rem .5rem;width:fit-content;">.color-gray-light</p>
+                        <p class="color-gray-dark">.color-gray-dark</p>
+                        <p class="color-gray">.color-gray</p>
+                        <p class="color-charcoal">.color-charcoal</p>
+                        <p class="color-white" style="background:#18294C;padding:.25rem .5rem;width:fit-content;">.color-white</p>
+                        <p class="color-cream">.color-cream</p>
+                        <p class="color-cream-light">.color-cream-light</p>
+                        <p class="color-peach-light">.color-peach-light</p>
+                        <p class="color-off-white">.color-off-white</p>
+                        <p class="color-brown">.color-brown</p>
+                        <p class="color-brown-dark">.color-brown-dark</p>
+                        <p class="color-gold">.color-gold</p>
+                        <p class="color-gold-dark">.color-gold-dark</p>
+                        <p class="color-primary-dark">.color-primary-dark</p>
+                        <p class="color-text-dark">.color-text-dark</p>
+                        <p class="color-muted-dark">.color-muted-dark</p>
+                        <p class="color-subtitle-dark">.color-subtitle-dark</p>
+                        <p class="color-red-extra-dark">.color-red-extra-dark</p>
+                        <p class="color-purple-extra-dark">.color-purple-extra-dark</p>
+                        <p class="color-green-extra-dark">.color-green-extra-dark</p>
+                        <p class="color-green-forest-dark">.color-green-forest-dark</p>
+                        <p class="color-green-leaf-dark">.color-green-leaf-dark</p>
+                        <p class="color-blue-green-extra-dark">.color-blue-green-extra-dark</p>
+                        <p class="color-gray-extra-dark">.color-gray-extra-dark</p>
+                        <p class="color-blue-extra-dark">.color-blue-extra-dark</p>
+                        <p class="color-brown-extra-dark">.color-brown-extra-dark</p>
+                        <p class="color-charcoal-dark">.color-charcoal-dark</p>
+                        <p class="color-gold-extra-dark">.color-gold-extra-dark</p>
+                    </div>
+                </div>
+                <div class="bd-code">
+                    <div class="bd-code__header">
+                        <span class="bd-code__label">HTML</span>
+                        <button class="docs-copy" type="button"><i class="fa-regular fa-copy"></i> Copiar</button>
+                    </div>
+<pre><code>&lt;p class="color-primary"&gt;Texto primario&lt;/p&gt;
+&lt;p class="color-secondary"&gt;Texto secundario&lt;/p&gt;
+&lt;p class="color-accent"&gt;Texto acento&lt;/p&gt;
+&lt;p class="color-purple"&gt;Texto púrpura&lt;/p&gt;
+&lt;p class="color-purple-dark"&gt;Texto púrpura oscuro&lt;/p&gt;
+&lt;p class="color-blue-green"&gt;Texto blue-green&lt;/p&gt;
+&lt;p class="color-blue-green-light"&gt;Texto blue-green claro&lt;/p&gt;
+&lt;p class="color-blue-green-dark"&gt;Texto blue-green oscuro&lt;/p&gt;
+&lt;p class="color-green-dark"&gt;Texto verde oscuro&lt;/p&gt;
+&lt;p class="color-green-forest"&gt;Texto verde bosque&lt;/p&gt;
+&lt;p class="color-green-leaf"&gt;Texto verde hoja&lt;/p&gt;
+&lt;p class="color-green-fresh"&gt;Texto verde fresco&lt;/p&gt;
+&lt;p class="color-green-pale"&gt;Texto verde pálido&lt;/p&gt;
+&lt;p class="color-red-light"&gt;Texto rojo claro&lt;/p&gt;
+&lt;p class="color-blue-dark"&gt;Texto azul oscuro&lt;/p&gt;
+&lt;p class="color-gray-extra-light"&gt;Texto gris extra claro&lt;/p&gt;
+&lt;p class="color-gray-light"&gt;Texto gris claro&lt;/p&gt;
+&lt;p class="color-gray-dark"&gt;Texto gris oscuro&lt;/p&gt;
+&lt;p class="color-gray"&gt;Texto gris&lt;/p&gt;
+&lt;p class="color-charcoal"&gt;Texto carbón&lt;/p&gt;
+&lt;p class="color-white"&gt;Texto blanco&lt;/p&gt;
+&lt;p class="color-cream"&gt;Texto crema&lt;/p&gt;
+&lt;p class="color-cream-light"&gt;Texto crema claro&lt;/p&gt;
+&lt;p class="color-peach-light"&gt;Texto melocotón claro&lt;/p&gt;
+&lt;p class="color-off-white"&gt;Texto blanco roto&lt;/p&gt;
+&lt;p class="color-brown"&gt;Texto marrón&lt;/p&gt;
+&lt;p class="color-brown-dark"&gt;Texto marrón oscuro&lt;/p&gt;
+&lt;p class="color-gold"&gt;Texto dorado&lt;/p&gt;
+&lt;p class="color-gold-dark"&gt;Texto dorado oscuro&lt;/p&gt;
+&lt;p class="color-primary-dark"&gt;Texto primario oscuro&lt;/p&gt;
+&lt;p class="color-text-dark"&gt;Texto texto oscuro&lt;/p&gt;
+&lt;p class="color-muted-dark"&gt;Texto gris medio oscuro&lt;/p&gt;
+&lt;p class="color-subtitle-dark"&gt;Texto subtítulo oscuro&lt;/p&gt;
+&lt;p class="color-red-extra-dark"&gt;Texto rojo extra oscuro&lt;/p&gt;
+&lt;p class="color-purple-extra-dark"&gt;Texto púrpura extra oscuro&lt;/p&gt;
+&lt;p class="color-green-extra-dark"&gt;Texto verde extra oscuro&lt;/p&gt;
+&lt;p class="color-green-forest-dark"&gt;Texto verde bosque oscuro&lt;/p&gt;
+&lt;p class="color-green-leaf-dark"&gt;Texto verde hoja oscuro&lt;/p&gt;
+&lt;p class="color-blue-green-extra-dark"&gt;Texto blue-green extra oscuro&lt;/p&gt;
+&lt;p class="color-gray-extra-dark"&gt;Texto gris extra oscuro&lt;/p&gt;
+&lt;p class="color-blue-extra-dark"&gt;Texto azul extra oscuro&lt;/p&gt;
+&lt;p class="color-brown-extra-dark"&gt;Texto marrón extra oscuro&lt;/p&gt;
+&lt;p class="color-charcoal-dark"&gt;Texto carbón oscuro&lt;/p&gt;
+&lt;p class="color-gold-extra-dark"&gt;Texto dorado extra oscuro&lt;/p&gt;</code></pre>
+                </div>
+                <h3>Lista completa (.text-color-*)</h3>
+                <p>Utilities genéricas de color de texto para cualquier elemento interno del scope (voltaje contraste en chips, badges, etc.):</p>
+                <table class="docs-table">
+                    <thead>
+                        <tr><th>Clase</th><th>Valor</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>.text-color-white</code></td><td>Blanco <code>#FFFFFF</code> (sobre fondos oscuros)</td></tr>
+                        <tr><td><code>.text-color-primary</code></td><td>Primario <code>#841D66</code></td></tr>
+                        <tr><td><code>.text-color-secondary</code></td><td>Secundario <code>#FACAFB</code></td></tr>
+                        <tr><td><code>.text-color-accent</code></td><td>Acento <code>#E1A4B1</code></td></tr>
+                        <tr><td><code>.text-color-blue-green</code></td><td>Blue-green <code>#3FAE95</code></td></tr>
+                        <tr><td><code>.text-color-blue-green-light</code></td><td>Blue-green claro <code>#8ECBB8</code></td></tr>
+                        <tr><td><code>.text-color-blue-green-medium</code></td><td>Blue-green medio <code>#2E8F78</code> <span class="docs-badge">solo texto grande</span></td></tr>
+                        <tr><td><code>.text-color-blue-green-dark</code></td><td>Blue-green oscuro <code>#0F685E</code></td></tr>
+                        <tr><td><code>.text-color-green-dark</code></td><td>Verde oscuro <code>#006A31</code></td></tr>
+                        <tr><td><code>.text-color-purple</code></td><td>Púrpura <code>#C8127C</code></td></tr>
+                        <tr><td><code>.text-color-purple-dark</code></td><td>Púrpura oscuro <code>#870d54</code></td></tr>
+                        <tr><td><code>.text-color-red-light</code></td><td>Rojo claro <code>#DEA6AE</code></td></tr>
+                        <tr><td><code>.text-color-blue-dark</code></td><td>Azul oscuro <code>#18294C</code></td></tr>
+                        <tr><td><code>.text-color-gray-extra-light</code></td><td>Gris extra claro <code>#F9F9F9</code></td></tr>
+                        <tr><td><code>.text-color-gray</code></td><td>Gris <code>#707070</code></td></tr>
+                        <tr><td><code>.text-color-cream</code></td><td>Crema <code>#FCF5F0</code></td></tr>
+                        <tr><td><code>.text-color-brown</code></td><td>Marrón <code>#8C5E35</code></td></tr>
+                        <tr><td><code>.text-color-brown-dark</code></td><td>Marrón oscuro <code>#4B2803</code></td></tr>
+                        <tr><td><code>.text-color-peach-light</code></td><td>Melocotón claro <code>#FFEEE2</code></td></tr>
+                        <tr><td><code>.text-color-off-white</code></td><td>Blanco roto <code>#F9F9F7</code></td></tr>
+                        <tr><td><code>.text-color-charcoal</code></td><td>Carbón <code>#2F3130</code></td></tr>
+                        <tr><td><code>.text-color-gold</code></td><td>Dorado <code>#F2B705</code></td></tr>
+                        <tr><td><code>.text-color-gold-dark</code></td><td>Dorado oscuro <code>#3F2E00</code></td></tr>
+                        <tr><td><code>.text-color-cream-light</code></td><td>Crema claro <code>#FFEFD4</code></td></tr>
+                        <tr><td><code>.text-color-green-forest</code></td><td>Verde bosque <code>#0A3909</code></td></tr>
+                        <tr><td><code>.text-color-green-leaf</code></td><td>Verde hoja <code>#2D5A27</code></td></tr>
+                        <tr><td><code>.text-color-green-fresh</code></td><td>Verde fresco <code>#BCF0AE</code></td></tr>
+                        <tr><td><code>.text-color-green-pale</code></td><td>Verde pálido <code>#E1EDDE</code></td></tr>
+                        <tr><td><code>.text-color-primary-dark</code></td><td>Primario oscuro <code>#701957</code> <span class="docs-badge">tono de hover</span></td></tr>
+                        <tr><td><code>.text-color-text-dark</code></td><td>Texto oscuro <code>#2A2A2A</code> <span class="docs-badge">tono de hover</span></td></tr>
+                        <tr><td><code>.text-color-muted-dark</code></td><td>Gris medio oscuro <code>#5B616D</code> <span class="docs-badge">tono de hover</span></td></tr>
+                        <tr><td><code>.text-color-subtitle-dark</code></td><td>Subtítulo oscuro <code>#4C3C21</code> <span class="docs-badge">tono de hover</span></td></tr>
+                        <tr><td><code>.text-color-red-extra-dark</code></td><td>Rojo extra oscuro <code>#920000</code> <span class="docs-badge">tono de hover</span></td></tr>
+                        <tr><td><code>.text-color-purple-extra-dark</code></td><td>Púrpura extra oscuro <code>#730B47</code> <span class="docs-badge">tono de hover</span></td></tr>
+                        <tr><td><code>.text-color-green-extra-dark</code></td><td>Verde extra oscuro <code>#005A2A</code> <span class="docs-badge">tono de hover</span></td></tr>
+                        <tr><td><code>.text-color-green-forest-dark</code></td><td>Verde bosque oscuro <code>#093008</code> <span class="docs-badge">tono de hover</span></td></tr>
+                        <tr><td><code>.text-color-green-leaf-dark</code></td><td>Verde hoja oscuro <code>#264C21</code> <span class="docs-badge">tono de hover</span></td></tr>
+                        <tr><td><code>.text-color-blue-green-extra-dark</code></td><td>Blue-green extra oscuro <code>#0D5850</code> <span class="docs-badge">tono de hover</span></td></tr>
+                        <tr><td><code>.text-color-gray-extra-dark</code></td><td>Gris extra oscuro <code>#4A4A4A</code> <span class="docs-badge">tono de hover</span></td></tr>
+                        <tr><td><code>.text-color-blue-extra-dark</code></td><td>Azul extra oscuro <code>#142341</code> <span class="docs-badge">tono de hover</span></td></tr>
+                        <tr><td><code>.text-color-brown-extra-dark</code></td><td>Marrón extra oscuro <code>#402203</code> <span class="docs-badge">tono de hover</span></td></tr>
+                        <tr><td><code>.text-color-charcoal-dark</code></td><td>Carbón oscuro <code>#282A29</code> <span class="docs-badge">tono de hover</span></td></tr>
+                        <tr><td><code>.text-color-gold-extra-dark</code></td><td>Dorado extra oscuro <code>#362700</code> <span class="docs-badge">tono de hover</span></td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="links">
+                <h2>Links</h2>
+                <p>Clases <code>&lt;color&gt;-link</code> para colorear un enlace y forzar el subrayado. Son el espejo de la familia <a href="#colores-util">Colores de texto</a> (mismos nombres de color). La clase gana sobre el color por defecto de cualquier <code>&lt;a&gt;</code> dentro de <code>.node-scope</code>.</p>
+                <p class="docs-note docs-note--info"><strong>Fondo:</strong> los tonos claros (<code>white</code>, <code>cream</code>, <code>off-white</code>, <code>green-pale</code>, <code>secondary</code>…) solo se leen sobre fondos oscuros; se marcan abajo. <code>.red-link</code> es un alias heredado de <code>.red-dark-link</code>.</p>
+                <table class="docs-table">
+                    <thead>
+                        <tr><th>Clase</th><th>Valor</th><th>Notas</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>.primary-link</code></td><td>Primario <code>#841D66</code></td><td></td></tr>
+                        <tr><td><code>.secondary-link</code></td><td>Secundario <code>#FACAFB</code></td><td><span class="docs-badge">fondo oscuro</span></td></tr>
+                        <tr><td><code>.accent-link</code></td><td>Acento <code>#E1A4B1</code></td><td></td></tr>
+                        <tr><td><code>.purple-link</code></td><td>Púrpura <code>#C8127C</code></td><td></td></tr>
+                        <tr><td><code>.purple-dark-link</code></td><td>Púrpura oscuro <code>#870d54</code></td><td></td></tr>
+                        <tr><td><code>.blue-green-link</code></td><td>Blue-green <code>#3FAE95</code></td><td></td></tr>
+                        <tr><td><code>.blue-green-light-link</code></td><td>Blue-green claro <code>#8ECBB8</code></td><td><span class="docs-badge">fondo oscuro</span></td></tr>
+                        <tr><td><code>.blue-green-medium-link</code></td><td>Blue-green medio <code>#2E8F78</code></td><td><span class="docs-badge">texto grande</span></td></tr>
+                        <tr><td><code>.blue-green-dark-link</code></td><td>Blue-green oscuro <code>#0F685E</code></td><td></td></tr>
+                        <tr><td><code>.green-dark-link</code></td><td>Verde oscuro <code>#006A31</code></td><td></td></tr>
+                        <tr><td><code>.green-forest-link</code></td><td>Verde bosque <code>#0A3909</code></td><td></td></tr>
+                        <tr><td><code>.green-leaf-link</code></td><td>Verde hoja <code>#2D5A27</code></td><td></td></tr>
+                        <tr><td><code>.green-fresh-link</code></td><td>Verde fresco <code>#BCF0AE</code></td><td><span class="docs-badge">fondo oscuro</span></td></tr>
+                        <tr><td><code>.green-pale-link</code></td><td>Verde pálido <code>#E1EDDE</code></td><td><span class="docs-badge">fondo oscuro</span></td></tr>
+                        <tr><td><code>.red-light-link</code></td><td>Rojo claro <code>#DEA6AE</code></td><td></td></tr>
+                        <tr><td><code>.red-dark-link</code> <small>(alias <code>.red-link</code>)</td><td>Rojo oscuro <code>#AC0000</code></td><td></td></tr>
+                        <tr><td><code>.blue-dark-link</code></td><td>Azul oscuro <code>#18294C</code></td><td></td></tr>
+                        <tr><td><code>.gray-extra-light-link</code></td><td>Gris extra claro <code>#F9F9F9</code></td><td><span class="docs-badge">fondo oscuro</span></td></tr>
+                        <tr><td><code>.gray-light-link</code></td><td>Gris claro <code>#EEEEEE</code></td><td><span class="docs-badge">fondo oscuro</span></td></tr>
+                        <tr><td><code>.gray-dark-link</code></td><td>Gris oscuro <code>#575757</code></td><td></td></tr>
+                        <tr><td><code>.gray-link</code></td><td>Gris <code>#707070</code></td><td></td></tr>
+                        <tr><td><code>.charcoal-link</code></td><td>Carbón <code>#2F3130</code></td><td></td></tr>
+                        <tr><td><code>.white-link</code></td><td>Blanco <code>#FFFFFF</code></td><td><span class="docs-badge">fondo oscuro</span></td></tr>
+                        <tr><td><code>.cream-link</code></td><td>Crema <code>#FCF5F0</code></td><td><span class="docs-badge">fondo oscuro</span></td></tr>
+                        <tr><td><code>.cream-light-link</code></td><td>Crema claro <code>#FFEFD4</code></td><td><span class="docs-badge">fondo oscuro</span></td></tr>
+                        <tr><td><code>.peach-light-link</code></td><td>Melocotón claro <code>#FFEEE2</code></td><td><span class="docs-badge">fondo oscuro</span></td></tr>
+                        <tr><td><code>.off-white-link</code></td><td>Blanco roto <code>#F9F9F7</code></td><td><span class="docs-badge">fondo oscuro</span></td></tr>
+                        <tr><td><code>.brown-link</code></td><td>Marrón <code>#8C5E35</code></td><td></td></tr>
+                        <tr><td><code>.brown-dark-link</code></td><td>Marrón oscuro <code>#4B2803</code></td><td></td></tr>
+                        <tr><td><code>.gold-link</code></td><td>Dorado <code>#F2B705</code></td><td></td></tr>
+                        <tr><td><code>.gold-dark-link</code></td><td>Dorado oscuro <code>#3F2E00</code></td><td></td></tr>
+                        <tr><td><code>.primary-dark-link</code></td><td>Primario oscuro <code>#701957</code></td><td><span class="docs-badge">tono de hover</span></td></tr>
+                        <tr><td><code>.text-dark-link</code></td><td>Texto oscuro <code>#2A2A2A</code></td><td><span class="docs-badge">tono de hover</span></td></tr>
+                        <tr><td><code>.muted-dark-link</code></td><td>Gris medio oscuro <code>#5B616D</code></td><td><span class="docs-badge">tono de hover</span></td></tr>
+                        <tr><td><code>.subtitle-dark-link</code></td><td>Subtítulo oscuro <code>#4C3C21</code></td><td><span class="docs-badge">tono de hover</span></td></tr>
+                        <tr><td><code>.red-extra-dark-link</code></td><td>Rojo extra oscuro <code>#920000</code></td><td><span class="docs-badge">tono de hover</span></td></tr>
+                        <tr><td><code>.purple-extra-dark-link</code></td><td>Púrpura extra oscuro <code>#730B47</code></td><td><span class="docs-badge">tono de hover</span></td></tr>
+                        <tr><td><code>.green-extra-dark-link</code></td><td>Verde extra oscuro <code>#005A2A</code></td><td><span class="docs-badge">tono de hover</span></td></tr>
+                        <tr><td><code>.green-forest-dark-link</code></td><td>Verde bosque oscuro <code>#093008</code></td><td><span class="docs-badge">tono de hover</span></td></tr>
+                        <tr><td><code>.green-leaf-dark-link</code></td><td>Verde hoja oscuro <code>#264C21</code></td><td><span class="docs-badge">tono de hover</span></td></tr>
+                        <tr><td><code>.blue-green-extra-dark-link</code></td><td>Blue-green extra oscuro <code>#0D5850</code></td><td><span class="docs-badge">tono de hover</span></td></tr>
+                        <tr><td><code>.gray-extra-dark-link</code></td><td>Gris extra oscuro <code>#4A4A4A</code></td><td><span class="docs-badge">tono de hover</span></td></tr>
+                        <tr><td><code>.blue-extra-dark-link</code></td><td>Azul extra oscuro <code>#142341</code></td><td><span class="docs-badge">tono de hover</span></td></tr>
+                        <tr><td><code>.brown-extra-dark-link</code></td><td>Marrón extra oscuro <code>#402203</code></td><td><span class="docs-badge">tono de hover</span></td></tr>
+                        <tr><td><code>.charcoal-dark-link</code></td><td>Carbón oscuro <code>#282A29</code></td><td><span class="docs-badge">tono de hover</span></td></tr>
+                        <tr><td><code>.gold-extra-dark-link</code></td><td>Dorado extra oscuro <code>#362700</code></td><td><span class="docs-badge">tono de hover</span></td></tr>
+                    </tbody>
+                </table>
+                <div class="bd-example">
+                    <div class="node-scope d-flex flex-wrap gap-3 align-items-center">
+                        <a class="primary-link" href="#">.primary-link</a>
+                        <a class="blue-green-dark-link" href="#">.blue-green-dark-link</a>
+                        <a class="green-leaf-link" href="#">.green-leaf-link</a>
+                        <a class="red-link" href="#">.red-link</a>
+                        <a class="purple-link" href="#">.purple-link</a>
+                        <a class="gold-dark-link" href="#">.gold-dark-link</a>
+                        <a class="white-link" href="#" style="background:#18294C;padding:.15rem .4rem;">.white-link</a>
+                        <a class="cream-link" href="#" style="background:#18294C;padding:.15rem .4rem;">.cream-link</a>
+                    </div>
+                </div>
+            </section>
+
+            <section id="fondos">
+                <h2>Backgrounds</h2>
+                <h3>Variación de bloque Drupal (.node-scope.bg-color-*)</h3>
+                <p>Se aplica sobre el contenedor raíz (el propio bloque Drupal): <code>&lt;section class="node-scope bg-color-…"&gt;</code>. Colores disponibles:</p>
+                <table class="docs-table">
+                    <thead>
+                        <tr><th>Clase</th><th>Valor</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>.node-scope.bg-color-primary</code></td><td>Primario <code>#841D66</code></td></tr>
+                        <tr><td><code>.node-scope.bg-color-secondary</code></td><td>Secundario <code>#FACAFB</code></td></tr>
+                        <tr><td><code>.node-scope.bg-color-accent</code></td><td>Acento <code>#E1A4B1</code></td></tr>
+                        <tr><td><code>.node-scope.bg-color-blue-green</code></td><td>Blue-green <code>#3FAE95</code></td></tr>
+                        <tr><td><code>.node-scope.bg-color-blue-green-light</code></td><td>Blue-green claro <code>#8ECBB8</code></td></tr>
+                        <tr><td><code>.node-scope.bg-color-blue-green-medium</code></td><td>Blue-green medio <code>#2E8F78</code> <span class="docs-badge">texto grande si lleva blanco</span></td></tr>
+                        <tr><td><code>.node-scope.bg-color-blue-green-dark</code></td><td>Blue-green oscuro <code>#0F685E</code></td></tr>
+                        <tr><td><code>.node-scope.bg-color-green-dark</code></td><td>Verde oscuro <code>#006A31</code></td></tr>
+                        <tr><td><code>.node-scope.bg-color-purple</code></td><td>Púrpura <code>#C8127C</code></td></tr>
+                        <tr><td><code>.node-scope.bg-color-purple-dark</code></td><td>Púrpura oscuro <code>#870d54</code></td></tr>
+                        <tr><td><code>.node-scope.bg-color-red-light</code></td><td>Rojo claro <code>#DEA6AE</code></td></tr>
+                        <tr><td><code>.node-scope.bg-color-white</code></td><td>Blanco <code>#FFFFFF</code></td></tr>
+                        <tr><td><code>.node-scope.bg-color-blue-dark</code></td><td>Azul oscuro <code>#18294C</code></td></tr>
+                        <tr><td><code>.node-scope.bg-color-gray-extra-light</code></td><td>Gris extra claro <code>#F9F9F9</code></td></tr>
+                        <tr><td><code>.node-scope.bg-color-gray</code></td><td>Gris <code>#707070</code></td></tr>
+                        <tr><td><code>.node-scope.bg-color-cream</code></td><td>Crema <code>#FCF5F0</code></td></tr>
+                        <tr><td><code>.node-scope.bg-color-brown</code></td><td>Marrón <code>#8C5E35</code></td></tr>
+                        <tr><td><code>.node-scope.bg-color-brown-dark</code></td><td>Marrón oscuro <code>#4B2803</code></td></tr>
+                        <tr><td><code>.node-scope.bg-color-peach-light</code></td><td>Melocotón claro <code>#FFEEE2</code></td></tr>
+                        <tr><td><code>.node-scope.bg-color-off-white</code></td><td>Blanco roto <code>#F9F9F7</code></td></tr>
+                        <tr><td><code>.node-scope.bg-color-charcoal</code></td><td>Carbón <code>#2F3130</code></td></tr>
+                        <tr><td><code>.node-scope.bg-color-gold</code></td><td>Dorado <code>#F2B705</code></td></tr>
+                        <tr><td><code>.node-scope.bg-color-gold-dark</code></td><td>Dorado oscuro <code>#3F2E00</code></td></tr>
+                        <tr><td><code>.node-scope.bg-color-cream-light</code></td><td>Crema claro <code>#FFEFD4</code></td></tr>
+                        <tr><td><code>.node-scope.bg-color-green-forest</code></td><td>Verde bosque <code>#0A3909</code></td></tr>
+                        <tr><td><code>.node-scope.bg-color-green-leaf</code></td><td>Verde hoja <code>#2D5A27</code></td></tr>
+                        <tr><td><code>.node-scope.bg-color-green-fresh</code></td><td>Verde fresco <code>#BCF0AE</code></td></tr>
+                        <tr><td><code>.node-scope.bg-color-green-pale</code></td><td>Verde pálido <code>#E1EDDE</code></td></tr>
+                        <tr><td><code>.node-scope.bg-color-green-light</code></td><td>Verde claro <code>#F2F7F4</code></td></tr>
+                        <tr><td><code>.node-scope.bg-color-purple-light</code></td><td>Púrpura claro <code>#EBE1FA</code></td></tr>
+                        <tr><td><code>.node-scope.bg-color-red-dark</code></td><td>Rojo oscuro <code>#AC0000</code></td></tr>
+                        <tr><td><code>.node-scope.bg-color-gray-light</code></td><td>Gris claro <code>#EEEEEE</code></td></tr>
+                        <tr><td><code>.node-scope.bg-color-gray-dark</code></td><td>Gris oscuro <code>#575757</code></td></tr>
+                        <tr><td><code class="text-decoration-line-through">.node-scope.bg-color--blue-green</code></td><td><s>Eliminado.</s> Era un duplicado mal escrito (doble guion) de <code>.node-scope.bg-color-blue-green</code>, que ya existía. Usa la utilidad genérica.</td></tr>
+                    </tbody>
+                </table>
+                <h3>Elementos internos (.bg-color-*)</h3>
+                <p>Se aplican a un elemento dentro del scope: <code>&lt;div class="bg-color-cream"&gt;</code>. Lista completa (33 tokens con la adición de --color-blue-green-medium):</p>
+                <table class="docs-table">
+                    <thead>
+                        <tr><th>Clase</th><th>Valor</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>.bg-color-primary</code></td><td>Fondo primario <code>#841D66</code></td></tr>
+                        <tr><td><code>.bg-color-secondary</code></td><td>Fondo secundario <code>#FACAFB</code></td></tr>
+                        <tr><td><code>.bg-color-accent</code></td><td>Fondo acento <code>#E1A4B1</code></td></tr>
+                        <tr><td><code>.bg-color-blue-green</code></td><td>Fondo blue-green <code>#3FAE95</code></td></tr>
+                        <tr><td><code>.bg-color-blue-green-light</code></td><td>Fondo blue-green claro <code>#8ECBB8</code></td></tr>
+                        <tr><td><code>.bg-color-blue-green-medium</code></td><td>Fondo blue-green medio <code>#2E8F78</code> <span class="docs-badge">texto grande si lleva blanco</span></td></tr>
+                        <tr><td><code>.bg-color-blue-green-dark</code></td><td>Fondo blue-green oscuro <code>#0F685E</code></td></tr>
+                        <tr><td><code>.bg-color-green-dark</code></td><td>Fondo verde oscuro <code>#006A31</code></td></tr>
+                        <tr><td><code>.bg-color-green-light</code></td><td>Fondo verde claro <code>#F2F7F4</code></td></tr>
+                        <tr><td><code>.bg-color-purple</code></td><td>Fondo púrpura <code>#C8127C</code></td></tr>
+                        <tr><td><code>.bg-color-purple-dark</code></td><td>Fondo púrpura oscuro <code>#870d54</code></td></tr>
+                        <tr><td><code>.bg-color-purple-light</code></td><td>Fondo púrpura claro <code>#EBE1FA</code></td></tr>
+                        <tr><td><code>.bg-color-red-light</code></td><td>Fondo rojo claro <code>#DEA6AE</code></td></tr>
+                        <tr><td><code>.bg-color-red-dark</code></td><td>Fondo rojo oscuro <code>#AC0000</code></td></tr>
+                        <tr><td><code>.bg-color-white</code></td><td>Fondo blanco <code>#FFFFFF</code></td></tr>
+                        <tr><td><code>.bg-color-blue-dark</code></td><td>Fondo azul oscuro <code>#18294C</code></td></tr>
+                        <tr><td><code>.bg-color-gray-extra-light</code></td><td>Fondo gris extra claro <code>#F9F9F9</code></td></tr>
+                        <tr><td><code>.bg-color-gray</code></td><td>Fondo gris <code>#707070</code></td></tr>
+                        <tr><td><code>.bg-color-gray-light</code></td><td>Fondo gris claro <code>#EEEEEE</code></td></tr>
+                        <tr><td><code>.bg-color-gray-dark</code></td><td>Fondo gris oscuro <code>#575757</code></td></tr>
+                        <tr><td><code>.bg-color-primary-dark</code></td><td>Fondo primario oscuro <code>#701957</code></td></tr>
+                        <tr><td><code>.bg-color-text-dark</code></td><td>Fondo texto oscuro <code>#2A2A2A</code></td></tr>
+                        <tr><td><code>.bg-color-muted-dark</code></td><td>Fondo gris medio oscuro <code>#5B616D</code></td></tr>
+                        <tr><td><code>.bg-color-subtitle-dark</code></td><td>Fondo subtítulo oscuro <code>#4C3C21</code></td></tr>
+                        <tr><td><code>.bg-color-red-extra-dark</code></td><td>Fondo rojo extra oscuro <code>#920000</code></td></tr>
+                        <tr><td><code>.bg-color-purple-extra-dark</code></td><td>Fondo púrpura extra oscuro <code>#730B47</code></td></tr>
+                        <tr><td><code>.bg-color-green-extra-dark</code></td><td>Fondo verde extra oscuro <code>#005A2A</code></td></tr>
+                        <tr><td><code>.bg-color-green-forest-dark</code></td><td>Fondo verde bosque oscuro <code>#093008</code></td></tr>
+                        <tr><td><code>.bg-color-green-leaf-dark</code></td><td>Fondo verde hoja oscuro <code>#264C21</code></td></tr>
+                        <tr><td><code>.bg-color-blue-green-extra-dark</code></td><td>Fondo blue-green extra oscuro <code>#0D5850</code></td></tr>
+                        <tr><td><code>.bg-color-gray-extra-dark</code></td><td>Fondo gris extra oscuro <code>#4A4A4A</code></td></tr>
+                        <tr><td><code>.bg-color-blue-extra-dark</code></td><td>Fondo azul extra oscuro <code>#142341</code></td></tr>
+                        <tr><td><code>.bg-color-brown-extra-dark</code></td><td>Fondo marrón extra oscuro <code>#402203</code></td></tr>
+                        <tr><td><code>.bg-color-charcoal-dark</code></td><td>Fondo carbón oscuro <code>#282A29</code></td></tr>
+                        <tr><td><code>.bg-color-gold-extra-dark</code></td><td>Fondo dorado extra oscuro <code>#362700</code></td></tr>
+                        <tr><td><code>.bg-color-cream</code></td><td>Fondo crema <code>#FCF5F0</code></td></tr>
+                        <tr><td><code>.bg-color-brown</code></td><td>Fondo marrón <code>#8C5E35</code></td></tr>
+                        <tr><td><code>.bg-color-brown-dark</code></td><td>Fondo marrón oscuro <code>#4B2803</code></td></tr>
+                        <tr><td><code>.bg-color-peach-light</code></td><td>Fondo melocotón claro <code>#FFEEE2</code></td></tr>
+                        <tr><td><code>.bg-color-off-white</code></td><td>Fondo blanco roto <code>#F9F9F7</code></td></tr>
+                        <tr><td><code>.bg-color-charcoal</code></td><td>Fondo carbón <code>#2F3130</code></td></tr>
+                        <tr><td><code>.bg-color-gold</code></td><td>Fondo dorado <code>#F2B705</code></td></tr>
+                        <tr><td><code>.bg-color-gold-dark</code></td><td>Fondo dorado oscuro <code>#3F2E00</code></td></tr>
+                        <tr><td><code>.bg-color-cream-light</code></td><td>Fondo crema claro <code>#FFEFD4</code></td></tr>
+                        <tr><td><code>.bg-color-green-forest</code></td><td>Fondo verde bosque <code>#0A3909</code></td></tr>
+                        <tr><td><code>.bg-color-green-leaf</code></td><td>Fondo verde hoja <code>#2D5A27</code></td></tr>
+                        <tr><td><code>.bg-color-green-fresh</code></td><td>Fondo verde fresco <code>#BCF0AE</code></td></tr>
+                        <tr><td><code>.bg-color-green-pale</code></td><td>Fondo verde pálido <code>#E1EDDE</code></td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="colores-de-borde">
+                <h2>Colores de borde</h2>
+                <p>Utilities de color de borde para cualquier elemento interno del scope (chips, badges, cards, etc.). Requieren que el elemento tenga un borde definido (los chips ya traen <code>border: 1px solid</code> en su base; solo se combina con <code>.border-color-*</code>). Sin <code>.border-color-*</code>, el borde toma el color del texto (<code>currentColor</code>).</p>
+                <p class="docs-note docs-note--info"><strong>Contraste de <code>--color-blue-green-medium</code> (<code>#2E8F78</code>):</strong> da <code>3.95:1</code> sobre blanco. Cumple AA para texto grande y para componentes gráficos (borde, separador), pero no llega al <code>4.5:1</code> que pide AA para texto normal. Como fondo, el texto blanco encima también queda en <code>3.95:1</code>, así que ahí solo usarlo con texto grande o con <code>--color-blue-green-dark</code> (<code>#0F685E</code>, <code>6.64:1</code>) como color de texto. La escala completa queda así sobre blanco: <code>#8ECBB8</code> <code>1.84:1</code> (solo decorativo), <code>#3FAE95</code> <code>2.73:1</code> y <code>#2E8F78</code> <code>3.95:1</code> (este), <code>#0F685E</code> <code>6.64:1</code> (el único que cumple AA para texto normal). Para texto normal sobre blanco, el color de la familia es <code>--color-blue-green-dark</code>.</p>
+                <p class="docs-note docs-note--info"><strong>Tonos <code>-dark</code> y <code>-extra-dark</code>:</strong> estos 14 tokens existen para que el hover de cada boton tenga un color propio en vez de un hex suelto. Todos dan <code>4.5:1</code> o más contra texto blanco, así que los rellenos que los usan cumplen AA. Ver <a href="botones-formularios.html#catalogo-botones">Catálogo de botones</a>.</p>
+                <p><strong>Se aplican con <code>!important</code>.</strong> Las 48 utilidades declaran <code>border-color: … !important</code> para ganar siempre frente al color de borde que traiga el componente. Así una sola clase de color reescribe el borde de cualquier variante sin importar su especificidad ni el orden en el CSS. Consecuencia práctica: solo cambia el <em>color</em>; el grosor, el estilo (<code>solid</code> / <code>dashed</code>) y el radio siguen viniendo del componente.</p>
+                <table class="docs-table">
+                    <thead>
+                        <tr><th>Clase</th><th>Valor</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>.border-color-primary</code></td><td>Primario <code>#841D66</code></td></tr>
+                        <tr><td><code>.border-color-secondary</code></td><td>Secundario <code>#FACAFB</code></td></tr>
+                        <tr><td><code>.border-color-accent</code></td><td>Acento <code>#E1A4B1</code></td></tr>
+                        <tr><td><code>.border-color-blue-green</code></td><td>Blue-green <code>#3FAE95</code></td></tr>
+                        <tr><td><code>.border-color-blue-green-light</code></td><td>Blue-green claro <code>#8ECBB8</code></td></tr>
+                        <tr><td><code>.border-color-blue-green-medium</code></td><td>Blue-green medio <code>#2E8F78</code></td></tr>
+                        <tr><td><code>.border-color-blue-green-dark</code></td><td>Blue-green oscuro <code>#0F685E</code></td></tr>
+                        <tr><td><code>.border-color-green-dark</code></td><td>Verde oscuro <code>#006A31</code></td></tr>
+                        <tr><td><code>.border-color-green-light</code></td><td>Verde claro <code>#F2F7F4</code></td></tr>
+                        <tr><td><code>.border-color-purple</code></td><td>Púrpura <code>#C8127C</code></td></tr>
+                        <tr><td><code>.border-color-purple-dark</code></td><td>Púrpura oscuro <code>#870d54</code></td></tr>
+                        <tr><td><code>.border-color-purple-light</code></td><td>Púrpura claro <code>#EBE1FA</code></td></tr>
+                        <tr><td><code>.border-color-red-light</code></td><td>Rojo claro <code>#DEA6AE</code></td></tr>
+                        <tr><td><code>.border-color-red-dark</code></td><td>Rojo oscuro <code>#AC0000</code></td></tr>
+                        <tr><td><code>.border-color-blue-dark</code></td><td>Azul oscuro <code>#18294C</code></td></tr>
+                        <tr><td><code>.border-color-gray-extra-light</code></td><td>Gris extra claro <code>#F9F9F9</code></td></tr>
+                        <tr><td><code>.border-color-gray</code></td><td>Gris <code>#707070</code></td></tr>
+                        <tr><td><code>.border-color-gray-light</code></td><td>Gris claro <code>#EEEEEE</code></td></tr>
+                        <tr><td><code>.border-color-gray-dark</code></td><td>Gris oscuro <code>#575757</code></td></tr>
+                        <tr><td><code>.border-color-white</code></td><td>Blanco <code>#FFFFFF</code> (útil sobre fondos oscuros)</td></tr>
+                        <tr><td><code>.border-color-cream</code></td><td>Crema <code>#FCF5F0</code></td></tr>
+                        <tr><td><code>.border-color-brown</code></td><td>Marrón <code>#8C5E35</code></td></tr>
+                        <tr><td><code>.border-color-brown-dark</code></td><td>Marrón oscuro <code>#4B2803</code></td></tr>
+                        <tr><td><code>.border-color-peach-light</code></td><td>Melocotón claro <code>#FFEEE2</code></td></tr>
+                        <tr><td><code>.border-color-off-white</code></td><td>Blanco roto <code>#F9F9F7</code></td></tr>
+                        <tr><td><code>.border-color-charcoal</code></td><td>Carbón <code>#2F3130</code></td></tr>
+                        <tr><td><code>.border-color-gold</code></td><td>Dorado <code>#F2B705</code></td></tr>
+                        <tr><td><code>.border-color-gold-dark</code></td><td>Dorado oscuro <code>#3F2E00</code></td></tr>
+                        <tr><td><code>.border-color-cream-light</code></td><td>Crema claro <code>#FFEFD4</code></td></tr>
+                        <tr><td><code>.border-color-green-forest</code></td><td>Verde bosque <code>#0A3909</code></td></tr>
+                        <tr><td><code>.border-color-green-leaf</code></td><td>Verde hoja <code>#2D5A27</code></td></tr>
+                        <tr><td><code>.border-color-green-fresh</code></td><td>Verde fresco <code>#BCF0AE</code></td></tr>
+                        <tr><td><code>.border-color-green-pale</code></td><td>Verde pálido <code>#E1EDDE</code></td></tr>
+                        <tr><td><code>.border-color-primary-dark</code></td><td>Primario oscuro <code>#701957</code></td></tr>
+                        <tr><td><code>.border-color-text-dark</code></td><td>Texto oscuro <code>#2A2A2A</code></td></tr>
+                        <tr><td><code>.border-color-muted-dark</code></td><td>Gris medio oscuro <code>#5B616D</code></td></tr>
+                        <tr><td><code>.border-color-subtitle-dark</code></td><td>Subtítulo oscuro <code>#4C3C21</code></td></tr>
+                        <tr><td><code>.border-color-red-extra-dark</code></td><td>Rojo extra oscuro <code>#920000</code></td></tr>
+                        <tr><td><code>.border-color-purple-extra-dark</code></td><td>Púrpura extra oscuro <code>#730B47</code></td></tr>
+                        <tr><td><code>.border-color-green-extra-dark</code></td><td>Verde extra oscuro <code>#005A2A</code></td></tr>
+                        <tr><td><code>.border-color-green-forest-dark</code></td><td>Verde bosque oscuro <code>#093008</code></td></tr>
+                        <tr><td><code>.border-color-green-leaf-dark</code></td><td>Verde hoja oscuro <code>#264C21</code></td></tr>
+                        <tr><td><code>.border-color-blue-green-extra-dark</code></td><td>Blue-green extra oscuro <code>#0D5850</code></td></tr>
+                        <tr><td><code>.border-color-gray-extra-dark</code></td><td>Gris extra oscuro <code>#4A4A4A</code></td></tr>
+                        <tr><td><code>.border-color-blue-extra-dark</code></td><td>Azul extra oscuro <code>#142341</code></td></tr>
+                        <tr><td><code>.border-color-brown-extra-dark</code></td><td>Marrón extra oscuro <code>#402203</code></td></tr>
+                        <tr><td><code>.border-color-charcoal-dark</code></td><td>Carbón oscuro <code>#282A29</code></td></tr>
+                        <tr><td><code>.border-color-gold-extra-dark</code></td><td>Dorado extra oscuro <code>#362700</code></td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="listas">
+                <h2>Listas</h2>
+                <p>Fondo de listas: sangría <code>2rem</code>, sin padding extra y marcadores de 16px. Con <code>.marker-primary</code> los marcadores se pintan en primario.</p>
+                <div class="bd-example">
+                    <div class="node-scope">
+                        <ul class="marker-primary">
+                            <li>Elemento uno</li>
+                            <li>Elemento dos</li>
+                            <li>Elemento tres</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="bd-code">
+                    <div class="bd-code__header">
+                        <span class="bd-code__label">HTML</span>
+                        <button class="docs-copy" type="button"><i class="fa-regular fa-copy"></i> Copiar</button>
+                    </div>
+<pre><code>&lt;ul class="marker-primary"&gt;
+    &lt;li&gt;Elemento uno&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                </div>
+            </section>
+
+            <section id="alineacion">
+                <h2>Alineación</h2>
+                <p>Utilidades de alineación estilo Bootstrap, scoped bajo <code>.node-scope</code> y con <code>!important</code>. Nomenclatura: <code>.&lt;propiedad&gt;-&lt;variante&gt;</code> y con breakpoint <code>.&lt;propiedad&gt;-&lt;bp&gt;-&lt;variante&gt;</code>.</p>
+                <table class="docs-table">
+                    <thead>
+                        <tr><th>Propiedad</th><th>Variantes</th><th>Nota</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>align-self-*</code></td><td><code>auto</code>, <code>start</code>, <code>end</code>, <code>center</code>, <code>baseline</code>, <code>stretch</code></td><td>Alinea un ítem en la cruz</td></tr>
+                        <tr><td><code>align-items-*</code></td><td><code>start</code>, <code>end</code>, <code>center</code>, <code>baseline</code>, <code>stretch</code></td><td>Alinea todos los ítems en la cruz</td></tr>
+                        <tr><td><code>justify-content-*</code></td><td><code>start</code>, <code>end</code>, <code>center</code>, <code>between</code>, <code>around</code>, <code>evenly</code></td><td>Distribución en el eje principal</td></tr>
+                        <tr><td><code>justify-self-*</code></td><td><code>auto</code>, <code>start</code>, <code>end</code>, <code>center</code>, <code>baseline</code>, <code>stretch</code></td><td>Alinea un ítem en el eje principal</td></tr>
+                    </tbody>
+                </table>
+                <p>Mapeo de variantes: <code>start</code> → <code>flex-start</code>, <code>end</code> → <code>flex-end</code>, <code>between</code> → <code>space-between</code>, <code>around</code> → <code>space-around</code>, <code>evenly</code> → <code>space-evenly</code> (solo justify-content).</p>
+                <p>Breakpoints (min-width): base + <code>sm</code> 576 / <code>md</code> 768 / <code>lg</code> 992 / <code>xl</code> 1200 / <code>xxl</code> 1400 px.</p>
+                <div class="bd-example">
+                    <div class="node-scope">
+                        <div style="display:flex;flex-direction:column;gap:.5rem;min-height:150px;border:1px dashed var(--color-gray);padding:1rem;">
+                            <div class="align-self-start" style="width:fit-content;background:var(--color-green-light);padding:.5rem 1rem;border-radius:var(--radius-md);">align-self-start</div>
+                            <div class="align-self-center" style="width:fit-content;background:var(--color-green-light);padding:.5rem 1rem;border-radius:var(--radius-md);">align-self-center</div>
+                            <div class="align-self-end" style="width:fit-content;background:var(--color-green-light);padding:.5rem 1rem;border-radius:var(--radius-md);">align-self-end</div>
+                        </div>
+                        <div style="display:flex;flex-wrap:nowrap;gap:.5rem;border:1px dashed var(--color-gray);padding:1rem;margin-top:1rem;">
+                            <div class="justify-content-start" style="background:var(--color-green-light);padding:.5rem 1rem;border-radius:var(--radius-md);">justify-content-start</div>
+                            <div class="justify-content-center" style="background:var(--color-green-light);padding:.5rem 1rem;border-radius:var(--radius-md);">justify-content-center</div>
+                            <div class="justify-content-between" style="flex:1;background:var(--color-green-light);padding:.5rem 1rem;border-radius:var(--radius-md);">justify-content-between</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bd-code">
+                    <div class="bd-code__header">
+                        <span class="bd-code__label">HTML</span>
+                        <button class="docs-copy" type="button"><i class="fa-regular fa-copy"></i> Copiar</button>
+                    </div>
+<pre><code>&lt;div class="align-self-end"&gt;Ítem alineado al final en la cruz&lt;/div&gt;
+&lt;div class="justify-content-between"&gt;Distribuye con espacio entre ítems&lt;/div&gt;
+&lt;div class="align-items-center justify-content-lg-between"&gt;Combinables con breakpoints&lt;/div&gt;</code></pre>
+                </div>
+            </section>
+
+            <section id="flexbox">
+                <h2>Flexbox</h2>
+                <table class="docs-table">
+                    <thead>
+                        <tr><th>Clase</th><th>Descripción</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>.flex</code></td><td><code>display:flex</code> con gap de <code>1rem</code></td></tr>
+                        <tr><td><code>.flex--center</code></td><td>Centrado en ambos ejes</td></tr>
+                        <tr><td><code>.flex--between</code></td><td><code>justify-content: space-between</code></td></tr>
+                        <tr><td><code>.flex--column</code></td><td>Dirección columna</td></tr>
+                        <tr><td><code>.flex--wrap</code></td><td><code>flex-wrap: wrap</code></td></tr>
+                    </tbody>
+                </table>
+                <div class="bd-example">
+                    <div class="node-scope flex flex--wrap" style="border:1px dashed #e5e7eb;padding:1rem;">
+                        <div style="background:var(--color-green-light);padding:.5rem 1rem;border-radius:8px;">Ítem A</div>
+                        <div style="background:var(--color-green-light);padding:.5rem 1rem;border-radius:8px;">Ítem B</div>
+                        <div style="background:var(--color-green-light);padding:.5rem 1rem;border-radius:8px;">Ítem C</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="grid">
+                <h2>Grid</h2>
+                <table class="docs-table">
+                    <thead>
+                        <tr><th>Clase</th><th>Definición</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>.grid</code></td><td><code>display:grid</code> con gap de <code>1rem</code></td></tr>
+                        <tr><td><code>.grid--2</code></td><td>2 columnas iguales</td></tr>
+                        <tr><td><code>.grid--3</code></td><td>3 columnas iguales (móvil: auto-fit)</td></tr>
+                        <tr><td><code>.grid--auto</code></td><td><code>repeat(auto-fit, minmax(260px, 1fr))</code></td></tr>
+                    </tbody>
+                </table>
+                <div class="bd-example">
+                    <div class="node-scope grid grid--3">
+                        <div style="background:var(--color-purple-light);padding:1rem;border-radius:8px;">Col 1</div>
+                        <div style="background:var(--color-purple-light);padding:1rem;border-radius:8px;">Col 2</div>
+                        <div style="background:var(--color-purple-light);padding:1rem;border-radius:8px;">Col 3</div>
+                    </div>
+                </div>
+                <div class="bd-code">
+                    <div class="bd-code__header">
+                        <span class="bd-code__label">HTML</span>
+                        <button class="docs-copy" type="button"><i class="fa-regular fa-copy"></i> Copiar</button>
+                    </div>
+<pre><code>&lt;div class="grid grid--3"&gt;
+    &lt;div&gt;Col 1&lt;/div&gt;
+    &lt;div&gt;Col 2&lt;/div&gt;
+    &lt;div&gt;Col 3&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </section>
+
+            <section id="animaciones">
+                <h2>Animaciones</h2>
+                <p>Flotado vertical suave, ideal para imágenes o iconos (por ejemplo, simular el vuelo de una abeja). Se aplica directamente a la imagen: <code>.float</code>.</p>
+                <table class="docs-table">
+                    <thead>
+                        <tr><th>Clase</th><th>Descripción</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>.float</code></td><td>Animación <code>translateY</code> de <code>14px</code>, 3s, <code>ease-in-out</code>, loop infinito.</td></tr>
+                        <tr><td><code>.float--slow</code></td><td>Aumenta la duración a 6s (movimiento más pausado).</td></tr>
+                        <tr><td><code>.float--fast</code></td><td>Reduce la duración a 2s (movimiento más ágil).</td></tr>
+                        <tr><td><code>.float--pause</code></td><td>Pausa la animación (<code>animation-play-state: paused</code>).</td></tr>
+                    </tbody>
+                </table>
+                <p class="docs-note docs-note--info">Accesibilidad: el framework incluye un bloque <code>@media (prefers-reduced-motion: reduce)</code> que desactiva el flotado por completo. Si la persona tiene “reducir movimiento” activo en su sistema, la imagen se queda estática en vez de moverse en loop infinito.</p>
+                <div class="bd-example">
+                    <div class="node-scope" style="min-height:180px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:linear-gradient(180deg,#e0f7ff,#cdeaf7);border-radius:12px;padding:1rem;">
+                        <img class="float" src="https://placehold.co/140x120/f2b705/4b2803?text=Abeja" alt="Imagen flotando" style="width:140px;height:auto;">
+                    </div>
+                </div>
+                <div class="bd-code">
+                    <div class="bd-code__header">
+                        <span class="bd-code__label">HTML</span>
+                        <button class="docs-copy" type="button"><i class="fa-regular fa-copy"></i> Copiar</button>
+                    </div>
+<pre><code>&lt;img class="float float--slow"
+     src="../assets/images/herramienta-3.webp"
+     alt="Abeja volando"&gt;</code></pre>
+                </div>
+            </section>
+
+            <section id="scroll-reveal">
+                <h2>Scroll reveal</h2>
+                <p class="docs-lead">Animaciones que se disparan al entrar o salir de pantalla. Funciona con <code>IntersectionObserver</code> nativo, sin jQuery y sin build.</p>
+
+                <p>Se distribuye como <strong>archivo aparte</strong> y no forma parte del framework, precisamente para que un proyecto que no lo use no cargue ni un byte: <code>assets/css/score-reveal.css</code> y <code>assets/js/score-reveal.js</code>. Esta página de documentación es la única que los carga.</p>
+
+                <p class="docs-note docs-note--info"><strong>Contenido visible por defecto.</strong> A diferencia de librerías como AOS, aquí el CSS <em>nunca</em> oculta nada por sí solo. Lo único que puede quedar oculto es un elemento que lleve la clase <code>.is-reveal-pending</code>, y esa clase la añade el propio JavaScript. Si el JS no carga, falla, o el navegador no soporta <code>IntersectionObserver</code>, todo el contenido se ve con normalidad. Además, con <code>prefers-reduced-motion: reduce</code> activo, la animación se anula y el contenido se muestra estático.</p>
+
+                <h3>Uso básico</h3>
+                <p>Añade <code>.reveal</code> al elemento. La dirección por defecto es <code>up</code>.</p>
+                <div class="bd-code">
+                    <div class="bd-code__header">
+                        <span class="bd-code__label">HTML</span>
+                        <button class="docs-copy" type="button"><i class="fa-regular fa-copy"></i> Copiar</button>
+                    </div>
+<pre><code>&lt;section class="node-scope"&gt;
+    &lt;div class="reveal" data-reveal="up"&gt;Entra desde abajo&lt;/div&gt;
+    &lt;div class="reveal" data-reveal="left"&gt;Entra desde la derecha&lt;/div&gt;
+    &lt;div class="reveal" data-reveal="scale"&gt;Entra con un leve zoom&lt;/div&gt;
+&lt;/section&gt;</code></pre>
+                </div>
+
+                <h3>Modos: entrada, salida o ambas</h3>
+                <p>Se eligen con <code>data-reveal-mode</code>. El modo por defecto es <code>in</code>.</p>
+                <table class="docs-table">
+                    <thead>
+                        <tr><th>Modo</th><th>Comportamiento</th><th>Cuándo usarlo</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>in</code> <span class="docs-badge">default</span></td>
+                            <td>Oculta lo que aún no está en pantalla, anima al entrar y se queda visible. Deja de observar el elemento, así que no se repite.</td>
+                            <td>El caso habitual: revelar secciones al hacer scroll sin volver a ocultarlas.</td>
+                        </tr>
+                        <tr>
+                            <td><code>both</code></td>
+                            <td>Igual que <code>in</code>, pero además vuelve a ocultarse al salir de pantalla. Se repite en cada cruce.</td>
+                            <td>Efecto de alternar: el contenido “acompaña” al scroll en ambos sentidos.</td>
+                        </tr>
+                        <tr>
+                            <td><code>out</code></td>
+                            <td>Arranca <strong>siempre visible</strong>, no oculta nada al iniciar, y a partir de ahí alterna igual que <code>both</code>.</td>
+                            <td>Cuando prefieres que el contenido esté disponible desde el primer momento y solo quieras que se desvanezca al alejarte.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="bd-code">
+                    <div class="bd-code__header">
+                        <span class="bd-code__label">HTML</span>
+                        <button class="docs-copy" type="button"><i class="fa-regular fa-copy"></i> Copiar</button>
+                    </div>
+<pre><code>&lt;!-- Solo entrada (default): se queda visible para siempre --&gt;
+&lt;div class="reveal" data-reveal="up"&gt;&lt;/div&gt;
+
+&lt;!-- Entrada y salida: alterna en cada cruce --&gt;
+&lt;div class="reveal" data-reveal="up" data-reveal-mode="both"&gt;&lt;/div&gt;
+
+&lt;!-- Solo salida: arranca visible, se desvanece al salir --&gt;
+&lt;div class="reveal" data-reveal="up" data-reveal-mode="out"&gt;&lt;/div&gt;</code></pre>
+                </div>
+
+                <h3>Direcciones</h3>
+                <table class="docs-table">
+                    <thead>
+                        <tr><th>Valor de <code>data-reveal</code></th><th>Transformación</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>up</code> <span class="docs-badge">default</span></td><td>Sube desde abajo.</td></tr>
+                        <tr><td><code>down</code></td><td>Baja desde arriba.</td></tr>
+                        <tr><td><code>left</code></td><td>Entra desplazándose desde la derecha.</td></tr>
+                        <tr><td><code>right</code></td><td>Entra desplazándose desde la izquierda.</td></tr>
+                        <tr><td><code>scale</code></td><td>Zoom suave desde <code>scale(0.92)</code>.</td></tr>
+                        <tr><td><code>fade</code></td><td>Solo opacidad, sin desplazamiento.</td></tr>
+                    </tbody>
+                </table>
+                <p>Un valor no reconocido se comporta como <code>up</code>.</p>
+
+                <h3>Ajustes de duración, retardo y distancia</h3>
+                <p>Se controlan con propiedades CSS personalizadas, en línea o desde tu propia hoja de estilos.</p>
+                <div class="bd-code">
+                    <div class="bd-code__header">
+                        <span class="bd-code__label">CSS / HTML</span>
+                        <button class="docs-copy" type="button"><i class="fa-regular fa-copy"></i> Copiar</button>
+                    </div>
+<pre><code>&lt;div class="reveal"
+     style="--reveal-duration: .8s; --reveal-delay: .3s; --reveal-distance: 3rem"&gt;
+    ...
+&lt;/div&gt;</code></pre>
+                </div>
+                <table class="docs-table">
+                    <thead>
+                        <tr><th>Variable</th><th>Default</th><th>Para qué sirve</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>--reveal-duration</code></td><td><code>0.6s</code></td><td>Duración de la transición.</td></tr>
+                        <tr><td><code>--reveal-delay</code></td><td><code>0s</code></td><td>Retardo antes de arrancar.</td></tr>
+                        <tr><td><code>--reveal-distance</code></td><td><code>1.75rem</code></td><td>Cuánto se desplaza el elemento.</td></tr>
+                        <tr><td><code>--reveal-easing</code></td><td><code>cubic-bezier(0.22, 0.61, 0.36, 1)</code></td><td>Curva de la animación.</td></tr>
+                    </tbody>
+                </table>
+
+                <h3>Escalonado en retículas</h3>
+                <p>Aplica <code>.reveal-stagger</code> al contenedor: reparte el retardo entre los hijos directos, hasta el sexto.</p>
+                <div class="bd-code">
+                    <div class="bd-code__header">
+                        <span class="bd-code__label">HTML</span>
+                        <button class="docs-copy" type="button"><i class="fa-regular fa-copy"></i> Copiar</button>
+                    </div>
+<pre><code>&lt;ul class="reveal-stagger"&gt;
+    &lt;li class="reveal" data-reveal="up"&gt;Uno&lt;/li&gt;
+    &lt;li class="reveal" data-reveal="up"&gt;Dos&lt;/li&gt;
+    &lt;li class="reveal" data-reveal="up"&gt;Tres&lt;/li&gt;
+    &lt;li class="reveal" data-reveal="up"&gt;Cuatro&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                </div>
+
+                <h3>Demo</h3>
+                <p>Desplázate hacia abajo: los cinco elementos entran escalonados. Vuelve a subir y observa que, al tener modo <code>in</code>, no se ocultan de nuevo.</p>
+                <div class="bd-example">
+                    <div class="node-scope reveal-stagger" style="display:grid;gap:1rem;padding:1rem;background:#f4f6f8;border-radius:12px;">
+                        <div class="reveal" data-reveal="up" style="background:#fff;border:1px solid #dfe4e8;border-radius:10px;padding:1.25rem;font-weight:600;">1 · Entrada desde abajo</div>
+                        <div class="reveal" data-reveal="up" style="background:#fff;border:1px solid #dfe4e8;border-radius:10px;padding:1.25rem;font-weight:600;">2 · Escalonado 70ms</div>
+                        <div class="reveal" data-reveal="up" style="background:#fff;border:1px solid #dfe4e8;border-radius:10px;padding:1.25rem;font-weight:600;">3 · Escalonado 140ms</div>
+                        <div class="reveal" data-reveal="up" style="background:#fff;border:1px solid #dfe4e8;border-radius:10px;padding:1.25rem;font-weight:600;">4 · Escalonado 210ms</div>
+                        <div class="reveal" data-reveal="up" style="background:#fff;border:1px solid #dfe4e8;border-radius:10px;padding:1.25rem;font-weight:600;">5 · Escalonado 280ms</div>
+                    </div>
+                </div>
+
+                <h3>Integración en Drupal</h3>
+                <p>Tres vías, de menos a más control. La librería expone <code>ScoreReveal</code> como API pública para poder reinicializarla.</p>
+
+                <p><strong>1. Asset Injector</strong> — sin escribir código. Crea un inyector CSS que apunte a <code>score-reveal.css</code> y otro JS a <code>score-reveal.js</code>, y aplícales una condición por ruta o tipo de contenido. Es la vía recomendada cuando sólo quieres activar el efecto en ciertas páginas.</p>
+
+                <p><strong>2. Bloque HTML</strong> — pega el JS dentro del propio bloque, entre <code>&lt;script&gt;</code> y <code>&lt;/script&gt;</code>. Como la librería es autocontenida, funciona igual. Para el CSS añade un <code>&lt;link&gt;</code> al archivo, o configura Asset Injector sólo para el CSS.</p>
+
+                <div class="bd-code">
+                    <div class="bd-code__header">
+                        <span class="bd-code__label">Drupal · bloque HTML</span>
+                        <button class="docs-copy" type="button"><i class="fa-regular fa-copy"></i> Copiar</button>
+                    </div>
+<pre><code>&lt;!-- En un bloque HTML de Drupal: --&gt;
+&lt;link rel="stylesheet"
+      href="/themes/tu-tema/assets/css/score-reveal.css"&gt;
+
+&lt;div class="reveal" data-reveal="up"&gt;Entrará al hacer scroll&lt;/div&gt;
+
+&lt;script src="/themes/tu-tema/assets/js/score-reveal.js"&gt;&lt;/script&gt;</code></pre>
+                </div>
+
+                <p><strong>3. Módulo propio</strong> — la forma más limpia. Declara la librería en <code>*.libraries.yml</code> y adjúntala sólo donde aplique con <code>attach_library()</code> dentro de un <code>build()</code> de plugin de bloque, o en el <code>.twig</code> del bloque con <code>{{ attach_library('mi_modulo/score-reveal') }}</code>. Así el archivo entra en el caché de agregación de Drupal y la versión se invalida sola al cambiarla.</p>
+
+                <div class="bd-code">
+                    <div class="bd-code__header">
+                        <span class="bd-code__label">Drupal · libraries.yml</span>
+                        <button class="docs-copy" type="button"><i class="fa-regular fa-copy"></i> Copiar</button>
+                    </div>
+<pre><code>score-reveal:
+  version: 1.x
+  css:
+    theme:
+      assets/css/score-reveal.css: {}
+  js:
+    assets/js/score-reveal.js: { attributes: { defer: true } }</code></pre>
+                </div>
+
+                <p class="docs-note"><strong>Drupal AJAX.</strong> Si un <em>behavior</em> reemplaza el DOM (filtros expuestos de una vista, un formulario, una carga por scroll), los elementos nuevos necesitan inicializarse. Usa la API pública, que es idempotente y no duplica observadores:</p>
+                <div class="bd-code">
+                    <div class="bd-code__header">
+                        <span class="bd-code__label">JavaScript</span>
+                        <button class="docs-copy" type="button"><i class="fa-regular fa-copy"></i> Copiar</button>
+                    </div>
+<pre><code>(function ($, Drupal) {
+    'use strict';
+
+    Drupal.behaviors.scoreReveal = {
+        attach: function (context) {
+            if (window.ScoreReveal) {
+                window.ScoreReveal.init({ scope: context });
+            }
+        }
+    };
+
+}(jQuery, Drupal));</code></pre>
+                </div>
+                <p>También puedes pasar opciones: <code>ScoreReveal.init({ scope, threshold, rootMargin })</code>. Y si integras la librería junto a otro script y una excepción impide que los observadores lleguen a dispararse, <code>ScoreReveal.releaseAll()</code> revela de golpe todo lo pendiente como red de seguridad.</p>
+            </section>
+
+            <section id="overrides">
+                <h2>Overrides de nodo</h2>
+                <p>La sección 34 del framework queda reservada para reglas dependientes de una página, ID de Drupal o layout específico. No colocar allí componentes reutilizables.</p>
+                <div class="bd-code">
+                    <div class="bd-code__header">
+                        <span class="bd-code__label">CSS</span>
+                        <button class="docs-copy" type="button"><i class="fa-regular fa-copy"></i> Copiar</button>
+                    </div>
+<pre><code>/* Ejemplo */
+.node-scope.home .hero-image__body h1 {
+    color: var(--color-primary);
+}
+
+.node-scope #acId686373429 {
+    margin-bottom: 2rem;
+}</code></pre>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer class="docs-footer">
+        Drupal Node CSS Framework v1 &mdash; Documentación de referencia
+    </footer>
+
+    <!-- Bootstrap JS (necesario para las demos) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- ============ BUSCADOR ============ -->
+    <div class="docs-search" id="docsSearch" role="dialog" aria-modal="true" aria-label="Buscar en la documentación" hidden>
+        <div class="docs-search__backdrop" data-docs-search-close></div>
+        <div class="docs-search__panel" role="search">
+            <div class="docs-search__head">
+                <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                <input
+                    type="search"
+                    class="docs-search__input"
+                    id="docsSearchInput"
+                    placeholder="Buscar componentes, clases, utilidades..."
+                    autocomplete="off"
+                    spellcheck="false"
+                    aria-label="Término de búsqueda"
+                    aria-controls="docsSearchResults"
+                    aria-expanded="false">
+                <button type="button" class="docs-search__close" data-docs-search-close aria-label="Cerrar búsqueda">Esc</button>
+            </div>
+            <div class="docs-search__results" id="docsSearchResults" role="listbox" aria-label="Resultados"></div>
+            <div class="docs-search__foot">
+                <span><kbd>&uarr;</kbd><kbd>&darr;</kbd> navegar</span>
+                <span><kbd>Enter</kbd> abrir</span>
+                <span><kbd>Esc</kbd> cerrar</span>
+                <span class="docs-search__count" id="docsSearchCount"></span>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/docs-search-index.js"></script>
+
+    <script src="assets/js/docs.js"></script>
+    <script src="assets/js/docs-search.js"></script>
+
+    <!-- Libreria opcional de animaciones por scroll (ver seccion #scroll-reveal) -->
+    <script src="../assets/js/score-reveal.js"></script>
+</body>
+</html>
