@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,11 +13,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- Drupal Node CSS Framework -->
-    <link rel="stylesheet" href="../assets/css/drupal-node-css-framework-v1.css">
+    <link rel="stylesheet" href="assets/css/drupal-node-css-framework-v1.css">
 
     <!-- Docs -->
     <link rel="stylesheet" href="assets/css/docs.css">
 </head>
+
 <body>
 
     <header class="docs-navbar">
@@ -31,7 +33,8 @@
                 <a href="botones-formularios.html">Botones y Formularios</a>
                 <a href="utilidades.html">Utilidades</a>
             </nav>
-            <button class="docs-search-btn" type="button" aria-label="Buscar en la documentación" aria-haspopup="dialog">
+            <button class="docs-search-btn" type="button" aria-label="Buscar en la documentación"
+                aria-haspopup="dialog">
                 <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
                 <span class="docs-search-btn__text">Buscar</span>
                 <kbd class="docs-search-btn__kbd">/</kbd>
@@ -61,17 +64,19 @@
 
         <main class="docs-layout__content docs-content">
             <h1>Fundamentos</h1>
-            <p class="docs-lead">Guía de inicio y design tokens del framework CSS reutilizable para micrositios Drupal.</p>
+            <p class="docs-lead">Guía de inicio y design tokens del framework CSS reutilizable para micrositios Drupal.
+            </p>
 
             <section id="instalacion">
                 <h2>Instalación</h2>
-                <p>El framework es un único archivo CSS (Desktop First). Para usarlo se añade el stylesheet a la cabecera del nodo junto con las dependencias globales del sitio (Bootstrap y Font Awesome).</p>
+                <p>El framework es un único archivo CSS (Desktop First). Para usarlo se añade el stylesheet a la
+                    cabecera del nodo junto con las dependencias globales del sitio (Bootstrap y Font Awesome).</p>
                 <div class="bd-code">
                     <div class="bd-code__header">
                         <span class="bd-code__label">HTML</span>
                         <button class="docs-copy" type="button"><i class="fa-regular fa-copy"></i> Copiar</button>
                     </div>
-<pre><code>&lt;html lang="es"&gt;
+                    <pre><code>&lt;html lang="es"&gt;
 &lt;head&gt;
     &lt;!-- Bootstrap CSS --&gt;
     &lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"&gt;
@@ -105,7 +110,8 @@
                         <tr>
                             <td>Bootstrap</td>
                             <td>5.3.3</td>
-                            <td>Layout base de componentes: navbar, breadcrumb, accordion, tabs, modales, formularios y grid.</td>
+                            <td>Layout base de componentes: navbar, breadcrumb, accordion, tabs, modales, formularios y
+                                grid.</td>
                         </tr>
                         <tr>
                             <td>Font Awesome</td>
@@ -121,19 +127,21 @@
                 </table>
                 <div class="docs-note docs-note--tip">
                     <strong><i class="fa-solid fa-circle-info"></i></strong>
-                    <span>El framework asume que Bootstrap y Font Awesome ya existen en el sitio. No incluye el JS de Bootstrap; debe cargarse el bundle normal de Drupal.</span>
+                    <span>El framework asume que Bootstrap y Font Awesome ya existen en el sitio. No incluye el JS de
+                        Bootstrap; debe cargarse el bundle normal de Drupal.</span>
                 </div>
             </section>
 
             <section id="variables">
                 <h2>Variables / Design tokens</h2>
-                <p>Todas las variables se declaran en el selector <code>.node-scope</code> y se consumen a través de <code>var(--token)</code>. Para tematizar un nodo solo hay que sobrescribir la variable.</p>
+                <p>Todas las variables se declaran en el selector <code>.node-scope</code> y se consumen a través de
+                    <code>var(--token)</code>. Para tematizar un nodo solo hay que sobrescribir la variable.</p>
                 <div class="bd-code">
                     <div class="bd-code__header">
                         <span class="bd-code__label">CSS</span>
                         <button class="docs-copy" type="button"><i class="fa-regular fa-copy"></i> Copiar</button>
                     </div>
-<pre><code>.node-scope {
+                    <pre><code>.node-scope {
     --color-primary: #841D66;
     --font-heading: 'Roboto', sans-serif;
     --container-max: 1200px;
@@ -170,7 +178,8 @@
                         <div class="token-meta"><strong>--color-border</strong><span>#E5E7EB</span></div>
                     </div>
                     <div class="token-card">
-                        <div class="token-swatch" style="background:linear-gradient(180deg,#202735 69%,#4C6079 100%)"></div>
+                        <div class="token-swatch" style="background:linear-gradient(180deg,#202735 69%,#4C6079 100%)">
+                        </div>
                         <div class="token-meta"><strong>--color-bg</strong><span>linear-gradient(...)</span></div>
                     </div>
                     <div class="token-card">
@@ -234,7 +243,8 @@
                         <div class="token-meta"><strong>--color-blue-dark</strong><span>#18294C</span></div>
                     </div>
                     <div class="token-card">
-                        <div class="token-swatch" style="background-color:#FFFFFF;border-bottom:1px solid #e5e7eb"></div>
+                        <div class="token-swatch" style="background-color:#FFFFFF;border-bottom:1px solid #e5e7eb">
+                        </div>
                         <div class="token-meta"><strong>--color-white</strong><span>#FFFFFF</span></div>
                     </div>
                     <div class="token-card">
@@ -307,21 +317,81 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td><code>--font-base</code></td><td>Carlito, sans-serif</td><td>Cuerpo de texto</td></tr>
-                        <tr><td><code>--font-heading</code></td><td>Roboto, sans-serif</td><td>Títulos (h1-h6)</td></tr>
-                        <tr><td><code>--font-display</code></td><td>Bodoni Moda, serif</td><td>Textos display / CTA</td></tr>
-                        <tr><td><code>--fs-base</code></td><td>1rem</td><td>Tamaño raíz</td></tr>
-                        <tr><td><code>--fs-xs</code></td><td>20px</td><td>Pequeño</td></tr>
-                        <tr><td><code>--fs-sm</code></td><td>24px</td><td>Mediano</td></tr>
-                        <tr><td><code>--fs-lg</code></td><td>28px</td><td>Grande</td></tr>
-                        <tr><td><code>--fs-xl</code></td><td>2rem</td><td>Extra grande</td></tr>
-                        <tr><td><code>--fs-2xl</code></td><td>40px</td><td>Título mayor</td></tr>
-                        <tr><td><code>--fw-light</code></td><td>300</td><td>Light</td></tr>
-                        <tr><td><code>--fw-regular</code></td><td>400</td><td>Regular</td></tr>
-                        <tr><td><code>--fw-medium</code></td><td>500</td><td>Medium</td></tr>
-                        <tr><td><code>--fw-semibold</code></td><td>600</td><td>Semi bold</td></tr>
-                        <tr><td><code>--fw-bold</code></td><td>700</td><td>Bold</td></tr>
-                        <tr><td><code>--fw-extrabold</code></td><td>800</td><td>Extra bold</td></tr>
+                        <tr>
+                            <td><code>--font-base</code></td>
+                            <td>Carlito, sans-serif</td>
+                            <td>Cuerpo de texto</td>
+                        </tr>
+                        <tr>
+                            <td><code>--font-heading</code></td>
+                            <td>Roboto, sans-serif</td>
+                            <td>Títulos (h1-h6)</td>
+                        </tr>
+                        <tr>
+                            <td><code>--font-display</code></td>
+                            <td>Bodoni Moda, serif</td>
+                            <td>Textos display / CTA</td>
+                        </tr>
+                        <tr>
+                            <td><code>--fs-base</code></td>
+                            <td>1rem</td>
+                            <td>Tamaño raíz</td>
+                        </tr>
+                        <tr>
+                            <td><code>--fs-xs</code></td>
+                            <td>20px</td>
+                            <td>Pequeño</td>
+                        </tr>
+                        <tr>
+                            <td><code>--fs-sm</code></td>
+                            <td>24px</td>
+                            <td>Mediano</td>
+                        </tr>
+                        <tr>
+                            <td><code>--fs-lg</code></td>
+                            <td>28px</td>
+                            <td>Grande</td>
+                        </tr>
+                        <tr>
+                            <td><code>--fs-xl</code></td>
+                            <td>2rem</td>
+                            <td>Extra grande</td>
+                        </tr>
+                        <tr>
+                            <td><code>--fs-2xl</code></td>
+                            <td>40px</td>
+                            <td>Título mayor</td>
+                        </tr>
+                        <tr>
+                            <td><code>--fw-light</code></td>
+                            <td>300</td>
+                            <td>Light</td>
+                        </tr>
+                        <tr>
+                            <td><code>--fw-regular</code></td>
+                            <td>400</td>
+                            <td>Regular</td>
+                        </tr>
+                        <tr>
+                            <td><code>--fw-medium</code></td>
+                            <td>500</td>
+                            <td>Medium</td>
+                        </tr>
+                        <tr>
+                            <td><code>--fw-semibold</code></td>
+                            <td>600</td>
+                            <td>Semi bold</td>
+                        </tr>
+                        <tr>
+                            <td><code>--fw-bold</code></td>
+                            <td>700</td>
+                            <td>Bold</td>
+                        </tr>
+                        <tr>
+                            <td><code>--fw-extrabold</code></td>
+                            <td>800</td>
+                            <td>Extra bold</td>
+                        </tr>
                     </tbody>
                 </table>
             </section>
@@ -330,50 +400,93 @@
                 <h3>Espaciado y bordes</h3>
                 <table class="docs-table">
                     <thead>
-                        <tr><th>Token</th><th>Valor</th></tr>
+                        <tr>
+                            <th>Token</th>
+                            <th>Valor</th>
+                        </tr>
                     </thead>
                     <tbody>
-                        <tr><td><code>--space-xs</code></td><td>0.25rem</td></tr>
-                        <tr><td><code>--space-sm</code></td><td>0.5rem</td></tr>
-                        <tr><td><code>--space-md</code></td><td>1rem</td></tr>
-                        <tr><td><code>--space-lg</code></td><td>2rem</td></tr>
-                        <tr><td><code>--space-xl</code></td><td>3rem</td></tr>
-                        <tr><td><code>--radius-sm</code></td><td>4px</td></tr>
-                        <tr><td><code>--radius-md</code></td><td>8px</td></tr>
-                        <tr><td><code>--radius-lg</code></td><td>16px</td></tr>
-                        <tr><td><code>--radius-xl</code></td><td>24px</td></tr>
-                        <tr><td><code>--radius-pill</code></td><td>999px</td></tr>
-                        <tr><td><code>--container-max</code></td><td>1200px</td></tr>
+                        <tr>
+                            <td><code>--space-xs</code></td>
+                            <td>0.25rem</td>
+                        </tr>
+                        <tr>
+                            <td><code>--space-sm</code></td>
+                            <td>0.5rem</td>
+                        </tr>
+                        <tr>
+                            <td><code>--space-md</code></td>
+                            <td>1rem</td>
+                        </tr>
+                        <tr>
+                            <td><code>--space-lg</code></td>
+                            <td>2rem</td>
+                        </tr>
+                        <tr>
+                            <td><code>--space-xl</code></td>
+                            <td>3rem</td>
+                        </tr>
+                        <tr>
+                            <td><code>--radius-sm</code></td>
+                            <td>4px</td>
+                        </tr>
+                        <tr>
+                            <td><code>--radius-md</code></td>
+                            <td>8px</td>
+                        </tr>
+                        <tr>
+                            <td><code>--radius-lg</code></td>
+                            <td>16px</td>
+                        </tr>
+                        <tr>
+                            <td><code>--radius-xl</code></td>
+                            <td>24px</td>
+                        </tr>
+                        <tr>
+                            <td><code>--radius-pill</code></td>
+                            <td>999px</td>
+                        </tr>
+                        <tr>
+                            <td><code>--container-max</code></td>
+                            <td>1200px</td>
+                        </tr>
                     </tbody>
                 </table>
             </section>
 
             <section id="contexto-drupal">
                 <h2>Contexto Drupal</h2>
-                <p>Todos los estilos están scopeados bajo la clase <code>.node-scope</code>. El contenido del micrositio siempre debe envolverse en un contenedor con esa clase y todo el HTML del nodo queda aislado del tema global.</p>
+                <p>Todos los estilos están scopeados bajo la clase <code>.node-scope</code>. El contenido del micrositio
+                    siempre debe envolverse en un contenedor con esa clase y todo el HTML del nodo queda aislado del
+                    tema global.</p>
                 <div class="bd-example">
                     <div class="node-scope">
                         <div style="background:#EEEEEE;padding:.75rem 1rem;border-radius:8px;">
-                            <strong>.node-scope</strong> &mdash; &laquo;Inicio&raquo; &rsaquo; &laquo;Página actual&raquo;
+                            <strong>.node-scope</strong> &mdash; &laquo;Inicio&raquo; &rsaquo; &laquo;Página
+                            actual&raquo;
                         </div>
                     </div>
                 </div>
                 <ul>
                     <li><code>.node-scope</code> define variables, tipografía y color base.</li>
-                    <li>Los layouts Drupal <code>layout-twocol-33-67</code> y <code>layout-twocol-67-33</code> ajustan su grid dentro del nodo.</li>
-                    <li><code>.node-scope .layout[id]</code> tiene <code>scroll-margin-top</code> para navegación interna.</li>
+                    <li>Los layouts Drupal <code>layout-twocol-33-67</code> y <code>layout-twocol-67-33</code> ajustan
+                        su grid dentro del nodo.</li>
+                    <li><code>.node-scope .layout[id]</code> tiene <code>scroll-margin-top</code> para navegación
+                        interna.</li>
                 </ul>
             </section>
 
             <section id="tipografia-base">
                 <h2>Tipografía base</h2>
-                <p>Los encabezados usan <code>Roboto</code> (bold) y el cuerpo <code>Carlito</code>. La clase <code>.title</code> escala fluidamente con <code>clamp()</code>.</p>
+                <p>Los encabezados usan <code>Roboto</code> (bold) y el cuerpo <code>Carlito</code>. La clase
+                    <code>.title</code> escala fluidamente con <code>clamp()</code>.</p>
                 <div class="bd-example">
                     <div class="node-scope">
                         <h1 style="margin-bottom:.5rem;">Encabezado h1</h1>
                         <h2 style="margin-bottom:.5rem;">Encabezado h2</h2>
                         <h3>Encabezado h3</h3>
-                        <p>Párrafo de cuerpo de texto en <strong>Carlito</strong>. Puede usar <span class="strong-primary">resaltado primario</span> o <small>texto pequeño</small>.</p>
+                        <p>Párrafo de cuerpo de texto en <strong>Carlito</strong>. Puede usar <span
+                                class="strong-primary">resaltado primario</span> o <small>texto pequeño</small>.</p>
                     </div>
                 </div>
                 <div class="bd-code">
@@ -381,7 +494,7 @@
                         <span class="bd-code__label">HTML</span>
                         <button class="docs-copy" type="button"><i class="fa-regular fa-copy"></i> Copiar</button>
                     </div>
-<pre><code>&lt;div class="node-scope"&gt;
+                    <pre><code>&lt;div class="node-scope"&gt;
     &lt;h3&gt;Encabezado h3&lt;/h3&gt;
     &lt;p&gt;Párrafo de cuerpo en &lt;strong&gt;Carlito&lt;/strong&gt;.&lt;/p&gt;
     &lt;span class="strong-primary"&gt;Resaltado primario&lt;/span&gt;
@@ -390,18 +503,55 @@
                 <h3>Escala de encabezados</h3>
                 <table class="docs-table">
                     <thead>
-                        <tr><th>Encabezado</th><th>Clase equivalente</th><th>Tamaño</th><th>Notas</th></tr>
+                        <tr>
+                            <th>Encabezado</th>
+                            <th>Clase equivalente</th>
+                            <th>Tamaño</th>
+                            <th>Notas</th>
+                        </tr>
                     </thead>
                     <tbody>
-                        <tr><td><code>h1</code></td><td><code>.h1</code></td><td><code>clamp(2rem, 4vw, 2.5rem)</code> (~32–40px)</td><td>Fluido</td></tr>
-                        <tr><td><code>h2</code></td><td><code>.h2</code></td><td><code>clamp(1.5rem, 3vw, 1.875rem)</code> (~24–30px)</td><td>Fluido</td></tr>
-                        <tr><td><code>h3</code></td><td><code>.h3</code></td><td><code>1.25rem</code> (20px)</td><td>Fijo (canónico)</td></tr>
-                        <tr><td><code>h4</code></td><td><code>.h4</code></td><td><code>1.125rem</code> (18px)</td><td>Fijo</td></tr>
-                        <tr><td><code>h5</code></td><td><code>.h5</code></td><td><code>1rem</code> (16px)</td><td>Fijo</td></tr>
-                        <tr><td><code>h6</code></td><td><code>.h6</code></td><td><code>0.875rem</code> (14px)</td><td>Fijo</td></tr>
+                        <tr>
+                            <td><code>h1</code></td>
+                            <td><code>.h1</code></td>
+                            <td><code>clamp(2rem, 4vw, 2.5rem)</code> (~32–40px)</td>
+                            <td>Fluido</td>
+                        </tr>
+                        <tr>
+                            <td><code>h2</code></td>
+                            <td><code>.h2</code></td>
+                            <td><code>clamp(1.5rem, 3vw, 1.875rem)</code> (~24–30px)</td>
+                            <td>Fluido</td>
+                        </tr>
+                        <tr>
+                            <td><code>h3</code></td>
+                            <td><code>.h3</code></td>
+                            <td><code>1.25rem</code> (20px)</td>
+                            <td>Fijo (canónico)</td>
+                        </tr>
+                        <tr>
+                            <td><code>h4</code></td>
+                            <td><code>.h4</code></td>
+                            <td><code>1.125rem</code> (18px)</td>
+                            <td>Fijo</td>
+                        </tr>
+                        <tr>
+                            <td><code>h5</code></td>
+                            <td><code>.h5</code></td>
+                            <td><code>1rem</code> (16px)</td>
+                            <td>Fijo</td>
+                        </tr>
+                        <tr>
+                            <td><code>h6</code></td>
+                            <td><code>.h6</code></td>
+                            <td><code>0.875rem</code> (14px)</td>
+                            <td>Fijo</td>
+                        </tr>
                     </tbody>
                 </table>
-                <p class="docs-note">Algunos componentes tienen ajustes locales de <code>font-size</code> para sus encabezados (hero, cards, modal, img-nota, legend) para mantener jerarquías específicas. Esos ajustes <strong>no modifican</strong> la escala base definida bajo <code>.node-scope</code>.</p>
+                <p class="docs-note">Algunos componentes tienen ajustes locales de <code>font-size</code> para sus
+                    encabezados (hero, cards, modal, img-nota, legend) para mantener jerarquías específicas. Esos
+                    ajustes <strong>no modifican</strong> la escala base definida bajo <code>.node-scope</code>.</p>
             </section>
             </section>
 
@@ -409,20 +559,37 @@
                 <h2>Contenedores</h2>
                 <table class="docs-table">
                     <thead>
-                        <tr><th>Clase</th><th>Descripción</th></tr>
+                        <tr>
+                            <th>Clase</th>
+                            <th>Descripción</th>
+                        </tr>
                     </thead>
                     <tbody>
-                        <tr><td><code>.container</code></td><td>Contenedor centrado con <code>max-width: var(--container-max)</code> y padding lateral.</td></tr>
-                        <tr><td><code>.section</code></td><td>Añade padding vertical de <code>2rem</code>.</td></tr>
-                        <tr><td><code>.bg-gray-extra-light</code></td><td>Fondo <code>#F9F9F9</code>.</td></tr>
-                        <tr><td><code>.bgc-white .layout-content</code></td><td>Caja blanca con sombra y radio para layouts.</td></tr>
+                        <tr>
+                            <td><code>.container</code></td>
+                            <td>Contenedor centrado con <code>max-width: var(--container-max)</code> y padding lateral.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><code>.section</code></td>
+                            <td>Añade padding vertical de <code>2rem</code>.</td>
+                        </tr>
+                        <tr>
+                            <td><code>.bg-gray-extra-light</code></td>
+                            <td>Fondo <code>#F9F9F9</code>.</td>
+                        </tr>
+                        <tr>
+                            <td><code>.bgc-white .layout-content</code></td>
+                            <td>Caja blanca con sombra y radio para layouts.</td>
+                        </tr>
                     </tbody>
                 </table>
             </section>
 
             <section id="responsive">
                 <h2>Responsive / Breakpoints</h2>
-                <p class="docs-lead">El framework es Desktop First. Los ajustes móviles se aplican por rangos heredables: Mobile pequeño &le; 435px y Mobile 436&ndash;767px.</p>
+                <p class="docs-lead">El framework es Desktop First. Los ajustes móviles se aplican por rangos
+                    heredables: Mobile pequeño &le; 435px y Mobile 436&ndash;767px.</p>
                 <div class="breakpoint-row">
                     <span class="breakpoint-row__name">XL Desktop</span>
                     <span class="breakpoint-row__bar" style="width:180px"></span>
@@ -460,7 +627,8 @@
                 </div>
                 <div class="docs-note docs-note--info">
                     <strong><i class="fa-solid fa-right-left"></i></strong>
-                    <span>Los breakpoints heredan: las reglas de tablet se mantienen en mobile salvo que una indistinción menor los ajuste.</span>
+                    <span>Los breakpoints heredan: las reglas de tablet se mantienen en mobile salvo que una
+                        indistinción menor los ajuste.</span>
                 </div>
             </section>
         </main>
@@ -474,22 +642,17 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- ============ BUSCADOR ============ -->
-    <div class="docs-search" id="docsSearch" role="dialog" aria-modal="true" aria-label="Buscar en la documentación" hidden>
+    <div class="docs-search" id="docsSearch" role="dialog" aria-modal="true" aria-label="Buscar en la documentación"
+        hidden>
         <div class="docs-search__backdrop" data-docs-search-close></div>
         <div class="docs-search__panel" role="search">
             <div class="docs-search__head">
                 <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
-                <input
-                    type="search"
-                    class="docs-search__input"
-                    id="docsSearchInput"
-                    placeholder="Buscar componentes, clases, utilidades..."
-                    autocomplete="off"
-                    spellcheck="false"
-                    aria-label="Término de búsqueda"
-                    aria-controls="docsSearchResults"
-                    aria-expanded="false">
-                <button type="button" class="docs-search__close" data-docs-search-close aria-label="Cerrar búsqueda">Esc</button>
+                <input type="search" class="docs-search__input" id="docsSearchInput"
+                    placeholder="Buscar componentes, clases, utilidades..." autocomplete="off" spellcheck="false"
+                    aria-label="Término de búsqueda" aria-controls="docsSearchResults" aria-expanded="false">
+                <button type="button" class="docs-search__close" data-docs-search-close
+                    aria-label="Cerrar búsqueda">Esc</button>
             </div>
             <div class="docs-search__results" id="docsSearchResults" role="listbox" aria-label="Resultados"></div>
             <div class="docs-search__foot">
@@ -506,4 +669,5 @@
     <script src="assets/js/docs.js"></script>
     <script src="assets/js/docs-search.js"></script>
 </body>
+
 </html>
